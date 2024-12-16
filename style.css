@@ -16,25 +16,25 @@ body {
 header {
     background-color: #2a7b2e;
     color: white;
-    padding: 2rem;
+    padding: 1rem 2rem;
     text-align: center;
 }
 
 header .logo h1 {
-    font-size: 2.5rem;
-    margin-bottom: 0.5rem;
+    font-size: 2rem;
+    margin-bottom: 0.2rem;
 }
 
 header .logo p {
-    font-size: 1.2rem;
+    font-size: 1rem;
 }
 
 /* --- Contenedor principal --- */
 .container {
     display: flex;
     flex-wrap: nowrap;
-    margin: 1rem;
-    gap: 1rem;
+    margin: 2rem;
+    gap: 2rem;
 }
 
 /* --- Menú lateral --- */
@@ -44,12 +44,18 @@ header .logo p {
     padding: 1.5rem;
     flex: 0 0 250px;
     max-width: 250px;
-    border-radius: 8px;
+    border-radius: 12px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+.sidebar:hover {
+    transform: translateY(-10px);
 }
 
 .sidebar h3 {
-    font-size: 1.5rem;
-    margin-bottom: 1rem;
+    font-size: 1.3rem;
+    margin-bottom: 1.2rem;
 }
 
 .sidebar ul {
@@ -65,8 +71,8 @@ header .logo p {
     text-decoration: none;
     font-weight: bold;
     display: block;
-    padding: 0.5rem;
-    border-radius: 4px;
+    padding: 0.7rem;
+    border-radius: 6px;
     transition: all 0.3s ease;
 }
 
@@ -75,44 +81,23 @@ header .logo p {
 }
 
 /* --- Contenido principal --- */
-.content {
+.contenido {
     flex: 1;
-    padding: 1.5rem;
+    padding: 2rem;
     background: white;
-    border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    overflow: auto;
+    border-radius: 12px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
-.content h2 {
+.contenido h2 {
     font-size: 2rem;
-    margin-bottom: 1rem;
+    margin-bottom: 1.2rem;
     color: #2a7b2e;
 }
 
-.content p {
-    font-size: 1rem;
+.contenido p {
+    font-size: 1.1rem;
     margin-bottom: 1.5rem;
-}
-
-.content ul {
-    list-style: none;
-    padding: 0;
-}
-
-.content ul li {
-    margin: 0.5rem 0;
-}
-
-.content ul li a {
-    color: #2a7b2e;
-    text-decoration: none;
-    font-weight: bold;
-    transition: all 0.3s ease;
-}
-
-.content ul li a:hover {
-    text-decoration: underline;
 }
 
 /* --- Footer --- */
@@ -120,8 +105,17 @@ footer {
     background-color: #2a7b2e;
     color: white;
     text-align: center;
-    padding: 1rem 0;
-    margin-top: 2rem;
+    padding: 1.2rem 0;
+    margin-top: 3rem;
+}
+
+footer a {
+    color: white;
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: underline;
 }
 
 /* --- Responsividad --- */
@@ -135,7 +129,7 @@ footer {
         flex: 1;
     }
 
-    .content {
+    .contenido {
         flex: 1;
     }
 }
