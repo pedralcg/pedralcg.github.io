@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="./recursos/favicon.png" type="image/x-icon">
-    <title>Series temporales de Índices espectrales (IDEN)</title>
+    <title>Series temporales de Índices espectrales ESFP</title>
     <style>
         /* Reinicia márgenes y relleno */
         * {
@@ -17,7 +17,7 @@
         body {
             display: flex;
             flex-direction: column;
-            height: 100vh; /* Ocupa todo el alto de la ventana */
+            height: 100vh;
             font-family: Arial, sans-serif;
         }
 
@@ -25,19 +25,24 @@
         header {
             background-color: #2a7b2e;
             color: white;
-            padding: 10px;
+            padding: 1rem;
             text-align: center;
+        }
+
+        header h1 {
+            font-size: 1.5rem;
         }
 
         /* Contenedor del iframe */
         .content {
-            flex: 1; /* Ocupa el espacio restante */
+            flex: 1;
             display: flex;
         }
 
         iframe {
-            flex: 1; /* Ocupa todo el espacio dentro del contenedor */
+            flex: 1;
             border: none;
+            min-height: 300px; /* Altura mínima para móviles */
         }
 
         /* Footer */
@@ -45,7 +50,8 @@
             background-color: #2a7b2e;
             color: white;
             text-align: center;
-            padding: 10px;
+            padding: 0.5rem;
+            font-size: 0.9rem;
         }
 
         footer a {
@@ -55,6 +61,27 @@
 
         footer a:hover {
             text-decoration: underline;
+        }
+
+        /* Consultas de medios (responsividad) */
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 1.2rem;
+            }
+
+            footer {
+                font-size: 0.8rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            header h1 {
+                font-size: 1rem;
+            }
+
+            footer {
+                font-size: 0.7rem;
+            }
         }
     </style>
 </head>
@@ -66,12 +93,12 @@
 
     <!-- Contenido principal (iframe ocupa todo el espacio disponible) -->
     <div class="content">
-        <iframe src="https://pedralcg.users.earthengine.app/view/appgrafmensv01"></iframe>
+        <iframe src="https://pedralcg.users.earthengine.app/view/graficamens-indespect-mup"></iframe>
     </div>
 
     <!-- Pie de página -->
     <footer>
-        &copy; 2024 Pedro LCG | <a href="mailto:pedralcg@gmail.com">Contacto</a>
+        &copy; 2025 Pedro LCG | <a href="mailto:pedralcg@gmail.com">Contacto</a>
     </footer>
 </body>
 </html>

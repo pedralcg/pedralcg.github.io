@@ -17,7 +17,7 @@
         body {
             display: flex;
             flex-direction: column;
-            height: 100vh; /* Ocupa todo el alto de la ventana */
+            height: 100vh;
             font-family: Arial, sans-serif;
         }
 
@@ -25,19 +25,24 @@
         header {
             background-color: #2a7b2e;
             color: white;
-            padding: 10px;
+            padding: 1rem;
             text-align: center;
+        }
+
+        header h1 {
+            font-size: 1.5rem;
         }
 
         /* Contenedor del iframe */
         .content {
-            flex: 1; /* Ocupa el espacio restante */
+            flex: 1;
             display: flex;
         }
 
         iframe {
-            flex: 1; /* Ocupa todo el espacio dentro del contenedor */
+            flex: 1;
             border: none;
+            min-height: 300px; /* Altura mínima para móviles */
         }
 
         /* Footer */
@@ -45,7 +50,8 @@
             background-color: #2a7b2e;
             color: white;
             text-align: center;
-            padding: 10px;
+            padding: 0.5rem;
+            font-size: 0.9rem;
         }
 
         footer a {
@@ -55,6 +61,27 @@
 
         footer a:hover {
             text-decoration: underline;
+        }
+
+        /* Consultas de medios (responsividad) */
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 1.2rem;
+            }
+
+            footer {
+                font-size: 0.8rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            header h1 {
+                font-size: 1rem;
+            }
+
+            footer {
+                font-size: 0.7rem;
+            }
         }
     </style>
 </head>
