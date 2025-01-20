@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="./recursos/favicon.png" type="image/x-icon">
+    <title>Series temporales de Índices espectrales (IDEN)</title>
+    <style>
+        /* Reinicia márgenes y relleno */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Configuración básica */
+        body {
+            display: flex;
+            flex-direction: column;
+            height: 100vh; /* Ocupa todo el alto de la ventana */
+            font-family: Arial, sans-serif;
+        }
+
+        /* Encabezado */
+        header {
+            background-color: #2a7b2e;
+            color: white;
+            padding: 10px;
+            text-align: center;
+        }
+
+        /* Contenedor del iframe */
+        .content {
+            flex: 1; /* Ocupa el espacio restante */
+            display: flex;
+        }
+
+        iframe {
+            flex: 1; /* Ocupa todo el espacio dentro del contenedor */
+            border: none;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #2a7b2e;
+            color: white;
+            text-align: center;
+            padding: 10px;
+        }
+
+        footer a {
+            color: #ffeb3b;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <!-- Encabezado -->
+    <header>
+        <h1>Series temporales de índices espectrales - Montes de Utilidad Pública RM</h1>
+    </header>
+
+    <!-- Contenido principal (iframe ocupa todo el espacio disponible) -->
+    <div class="content">
+        <iframe src="https://pedralcg.users.earthengine.app/view/graficamens-indespect-mup"></iframe>
+    </div>
+
+    <!-- Pie de página -->
+    <footer>
+        &copy; 2025 Pedro LCG | <a href="mailto:pedralcg@gmail.com">Contacto</a>
+    </footer>
+</body>
+</html>
