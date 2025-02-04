@@ -42,12 +42,21 @@ header .logo p {
     background-color: #1f5b21;
     color: white;
     padding: 1.5rem;
-    flex: 0 0 250px;
-    max-width: 250px;
+    flex: 0 0 300px;
+    width: 300px; /* Añadimos width para garantizar la transición */
+    max-width: 300px;
     border-radius: 12px;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     transition: all 0.3s ease;
 }
+
+/* --- Efecto hover: cambia tamaño al pasar el ratón --- */
+.sidebar:hover {
+    flex: 0 0 500px;
+    width: 500px;
+    max-width: 500px;
+}
+
 
 .sidebar:hover {
     transform: translateY(-10px);
