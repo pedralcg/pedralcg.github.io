@@ -130,6 +130,11 @@ a:active {
     min-height: 500px; /* Ajusta este valor según necesites. Ej: 600px, 700px, etc. */
 }
 
+.map {
+  width: 100%;
+  height: 600px;
+}
+
 /* --- MAP STYLES --- */
 #map {
     width: 100%;
@@ -142,114 +147,23 @@ a:active {
     border-radius: 0;
 }
 
-/* --- Styles for the EXTERNAL ol-ext LayerSwitcher container --- */
-.external-ol-switcher {
-    flex-shrink: 0;
-    width: 350px; /* ¡Hacemos el selector más ancho! */
-    background-color: transparent;
-    border-radius: 0;
-    box-shadow: none;
-    border: none;
-    padding: 0;
-    font-family: var(--font-main);
-    color: var(--text-color);
-    max-height: 100%;
-    overflow-y: auto;
-    box-sizing: border-box;
+/* --- LAYER CONTROLS --- */
+.layer-controls {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  align-items: center;
+  margin-bottom: 1rem;
 }
 
-/* Resto de estilos del LayerSwitcher (ol-layerswitcher, h2, ul, li, label, input, etc.)
-   Mantienen los mismos estilos que antes, ya que son para la apariencia interna del selector. */
-
-.external-ol-switcher .ol-layerswitcher {
-    position: static;
-    top: auto;
-    right: auto;
-    width: auto;
-    box-shadow: none;
-    background-color: transparent;
-    padding: 0;
-    border: none;
+.layer-controls label {
+  font-weight: bold;
 }
 
-.external-ol-switcher .ol-layerswitcher > button {
-    display: none !important;
+.layer-controls select {
+  padding: 0.25rem;
 }
 
-.external-ol-switcher .ol-layerswitcher h2 {
-    display: block;
-    font-size: 1.3em;
-    margin: 0 0 15px 0;
-    color: var(--primary-color);
-    border-bottom: 2px solid var(--secondary-color);
-    padding-bottom: 8px;
-    font-weight: 600;
-}
-
-.external-ol-switcher .ol-layerswitcher h2 button {
-    display: none !important;
-}
-
-.external-ol-switcher .ol-layerswitcher ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-}
-
-.external-ol-switcher .ol-layerswitcher li {
-    margin-bottom: 12px;
-}
-
-.external-ol-switcher .ol-layerswitcher label {
-    display: flex;
-    align-items: center;
-    cursor: pointer;
-    font-size: 1.05em;
-    color: var(--text-color);
-    transition: color 0.2s ease;
-}
-
-.external-ol-switcher .ol-layerswitcher label:hover {
-    color: var(--primary-color);
-}
-
-.external-ol-switcher .ol-layerswitcher input[type="radio"] {
-    appearance: none;
-    width: 18px;
-    height: 18px;
-    border: 2px solid var(--panel-border-color);
-    border-radius: 50%;
-    margin-right: 10px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    transition: border-color 0.2s ease, background-color 0.2s ease;
-    flex-shrink: 0;
-}
-
-.external-ol-switcher .ol-layerswitcher input[type="radio"]::before {
-    content: '';
-    width: 10px;
-    height: 10px;
-    border-radius: 50%;
-    background-color: var(--highlight-color);
-    transform: scale(0);
-    transition: transform 0.2s ease-in-out;
-}
-
-.external-ol-switcher .ol-layerswitcher input[type="radio"]:checked {
-    border-color: var(--highlight-color);
-}
-
-.external-ol-switcher input[type="radio"]:checked::before {
-    transform: scale(1);
-}
-
-.external-ol-switcher .ol-layerswitcher li.ol-layerswitcher-active label {
-    font-weight: 700;
-    color: var(--primary-color);
-}
 
 /* --- RESPONSIVE --- */
 @media (max-width: 768px) {

@@ -11,6 +11,12 @@
     <script src="./lib/proj4.min.js"></script>
     <script src="./lib/ol.js"></script>
     <script src="./lib/ol-ext.js"></script>
+    <!-- Proj4 y registro de EPSG:25830 -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/proj4js/2.7.6/proj4.js"></script>
+    <script>
+    proj4.defs("EPSG:25830","+proj=utm +zone=30 +ellps=GRS80 +units=m +no_defs");
+    ol.proj.proj4.register(proj4); // Registrar en OpenLayers
+</script>
     
 </head>
 <body>
@@ -30,11 +36,15 @@
         <h1>Visor comparador de cartografía</h1>
         <p>Este visor permite comparar cartografía histórica y moderna usando un deslizador interactivo.</p>
 
-        <div class="map-and-switcher-container">
-            <div id="map" class="map"></div>
+        <div class="layer-controls">
+            <label for="modern">Capa moderna:</label>
+            <select id="modern"></select>
 
-            <div id="external-ol-switcher" class="external-ol-switcher">
-                </div>
+            <label for="historic">Capa histórica:</label>
+            <select id="historic"></select>
+        </div>
+
+        <div id="map" class="map"></div>
         </div>
 
     </main>
@@ -43,6 +53,6 @@
         <p>Pedro Alcoba Gómez • Proyecto OpenLayers</p>
     </footer>
 
-    <script src="script.js"></script> 
+    <script src="script.js" defer></script> 
 </body>
 </html>
