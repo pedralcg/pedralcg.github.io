@@ -1,0 +1,273 @@
+/* --- VARIABLES --- */
+:root {
+  --primary-color: #3b6b4c;           /* Verde bosque oscuro */
+  --secondary-color: #a7d7a4;         /* Verde pastel */
+  --text-color: #2e2e2e;
+  --background-color: #f0f9f0;        /* Verde muy claro */
+  --font-main: 'Inter', sans-serif;
+  --panel-bg-color: #ffffff;          /* Fondo blanco para paneles (mapa y selector) */
+  --panel-border-color: #e0e0e0;      /* Borde suave para paneles */
+  --panel-shadow: 0 6px 20px rgba(0, 0, 0, 0.1); /* Sombra para paneles */
+  --panel-radius: 12px;               /* Bordes redondeados para paneles */
+  --highlight-color: #4CAF50;         /* Un verde más vivo para destacar */
+}
+
+/* --- GLOBAL STYLES --- */
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  font-family: var(--font-main);
+  background-color: var(--background-color);
+  color: var(--text-color);
+  line-height: 1.6;
+}
+
+footer {
+  background-color: var(--primary-color);
+  color: white;
+  padding: 0.4rem 1.0rem;
+  text-align: center;
+  flex-shrink: 0;
+}
+
+/* --- HEADER FLEX --- */
+header {
+  background-color: var(--primary-color);
+  color: white;
+  padding: 0.4rem 1.0rem;
+  flex-shrink: 0;
+}
+
+.header-row {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.logo img {
+  height: 48px;
+  justify-self: start;
+}
+
+.nav-center {
+  display: flex;
+  gap: 2rem;
+  justify-self: center;
+  flex-wrap: wrap;
+}
+
+header nav a {
+  color: white !important;
+  text-decoration: none;
+  font-weight: 700;
+}
+
+main {
+  /* Reducimos aún más el padding superior para acercar el visor */
+  padding: 0.5rem 2rem; /* Más pequeño para el espacio vertical superior/inferior */
+  max-width: 1600px; /* ¡Aumentamos el ancho máximo de la página! */
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  overflow: hidden; /* Asegura que no haya scroll interno en main */
+}
+
+h1, h2, h3 {
+  color: var(--primary-color);
+  margin-top: 0.3rem; /* Más pequeño para los títulos */
+  margin-bottom: 0.3rem;
+}
+p {
+    margin-top: 0.3rem; /* Más pequeño para los párrafos */
+    margin-bottom: 0.8rem;
+}
+
+/* --- ENLACES GENERALES --- */
+a {
+  color: var(--primary-color);
+  text-decoration: none;
+}
+
+a:visited {
+  color: var(--primary-color);
+}
+
+a:hover,
+a:focus {
+  color: #2d523a;
+  text-decoration: underline;
+}
+
+a:active {
+  color: var(--secondary-color);
+}
+
+/* --- MAP AND SWITCHER CONTAINER (Panel principal) --- */
+.map-and-switcher-container {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    flex-grow: 1; /* Ocupa el espacio restante dentro de main */
+    background-color: var(--panel-bg-color);
+    border: 1px solid var(--panel-border-color);
+    box-shadow: var(--panel-shadow);
+    border-radius: var(--panel-radius);
+    overflow: hidden;
+    /* Eliminar height: 100% aquí para que flex-grow: 1 se encargue totalmente */
+    padding: 20px;
+    box-sizing: border-box;
+    /* Establecer una altura mínima para el contenedor, para que el visor nunca sea demasiado pequeño */
+    min-height: 500px; /* Ajusta este valor según necesites. Ej: 600px, 700px, etc. */
+}
+
+/* --- MAP STYLES --- */
+#map {
+    width: 100%;
+    flex-grow: 1;
+    min-width: 1000px; /* Aumentamos el ancho mínimo del mapa considerablemente */
+    height: 100%; /* El mapa ocupará toda la altura disponible en map-and-switcher-container */
+    border: none;
+    box-shadow: none;
+    background-color: transparent;
+    border-radius: 0;
+}
+
+/* --- Styles for the EXTERNAL ol-ext LayerSwitcher container --- */
+.external-ol-switcher {
+    flex-shrink: 0;
+    width: 350px; /* ¡Hacemos el selector más ancho! */
+    background-color: transparent;
+    border-radius: 0;
+    box-shadow: none;
+    border: none;
+    padding: 0;
+    font-family: var(--font-main);
+    color: var(--text-color);
+    max-height: 100%;
+    overflow-y: auto;
+    box-sizing: border-box;
+}
+
+/* Resto de estilos del LayerSwitcher (ol-layerswitcher, h2, ul, li, label, input, etc.)
+   Mantienen los mismos estilos que antes, ya que son para la apariencia interna del selector. */
+
+.external-ol-switcher .ol-layerswitcher {
+    position: static;
+    top: auto;
+    right: auto;
+    width: auto;
+    box-shadow: none;
+    background-color: transparent;
+    padding: 0;
+    border: none;
+}
+
+.external-ol-switcher .ol-layerswitcher > button {
+    display: none !important;
+}
+
+.external-ol-switcher .ol-layerswitcher h2 {
+    display: block;
+    font-size: 1.3em;
+    margin: 0 0 15px 0;
+    color: var(--primary-color);
+    border-bottom: 2px solid var(--secondary-color);
+    padding-bottom: 8px;
+    font-weight: 600;
+}
+
+.external-ol-switcher .ol-layerswitcher h2 button {
+    display: none !important;
+}
+
+.external-ol-switcher .ol-layerswitcher ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.external-ol-switcher .ol-layerswitcher li {
+    margin-bottom: 12px;
+}
+
+.external-ol-switcher .ol-layerswitcher label {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    font-size: 1.05em;
+    color: var(--text-color);
+    transition: color 0.2s ease;
+}
+
+.external-ol-switcher .ol-layerswitcher label:hover {
+    color: var(--primary-color);
+}
+
+.external-ol-switcher .ol-layerswitcher input[type="radio"] {
+    appearance: none;
+    width: 18px;
+    height: 18px;
+    border: 2px solid var(--panel-border-color);
+    border-radius: 50%;
+    margin-right: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: border-color 0.2s ease, background-color 0.2s ease;
+    flex-shrink: 0;
+}
+
+.external-ol-switcher .ol-layerswitcher input[type="radio"]::before {
+    content: '';
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: var(--highlight-color);
+    transform: scale(0);
+    transition: transform 0.2s ease-in-out;
+}
+
+.external-ol-switcher .ol-layerswitcher input[type="radio"]:checked {
+    border-color: var(--highlight-color);
+}
+
+.external-ol-switcher input[type="radio"]:checked::before {
+    transform: scale(1);
+}
+
+.external-ol-switcher .ol-layerswitcher li.ol-layerswitcher-active label {
+    font-weight: 700;
+    color: var(--primary-color);
+}
+
+/* --- RESPONSIVE --- */
+@media (max-width: 768px) {
+  main {
+    padding: 1rem;
+    height: auto;
+  }
+
+  .map-and-switcher-container {
+    flex-direction: column;
+    gap: 15px;
+    height: auto;
+    padding: 15px;
+    min-height: auto; /* Desactivar min-height para móviles si es necesario */
+  }
+
+  .external-ol-switcher {
+    width: 100%;
+    max-height: 300px;
+  }
+}

@@ -1,77 +1,58 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="author" content="Pedro Alcoba">
-    <link rel="icon" href="./recursos/favicon.png" type="image/x-icon">
-    <title>Pedralcg | Nuevas Tecnologías Forestales y Aplicaciones Geoespaciales</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Inicio</title>
+  <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
-    <header>
-        <div class="logo">
-            <h1>Pedralcg</h1>
-            <p>Nuevas Tecnologías Forestales y Aplicaciones Geoespaciales</p>
-        </div>
-    </header>
-    
-    <div class="container">
-        <!-- Menú lateral -->
-        <aside class="sidebar">
-            <h3>Visores y Aplicaciones</h3>
-            <ul>
-                <li><a href="proyectos/visor-openlayers.html" target="_blank">Visor OpenLayers</a></li>
-                <li><a href="proyectos/visor-ol-avanzado.html" target="_blank">Visor Avanzado</a></li>
-            </ul>
-            <h3>Google Earth Engine</h3>
-            <ul>
-                <li><a href="https://code.earthengine.google.com/aab17484717046187e572f0c0fcf9a40?noload=true" target="_blank">Descarga Índices Espectrales - Sentinel 2</a></li>
-
-            </ul>
-            <h3>Aplicaciones Google Earth Engine</h3>
-            <ul>
-                <li><a href="proyectos/gee-serietemporal_ENP.html" target="_blank">Serie Temporal - ENP</a></li>
-                <li><a href="proyectos/gee-serietemporal_ESF.html" target="_blank">Serie Temporal - ESF</a></li>
-                <li><a href="proyectos/gee-serietemporal_MUP.html" target="_blank">Serie Temporal - MUP</a></li>
-                <li><a href="proyectos/gee-serietemporal_MUP_v01.html" target="_blank">Serie Temporal - MUP v01 (borrador)</a></li>
-                <li><a href="proyectos/gee-serietemporal_MUP_v02.html" target="_blank">Serie Temporal - MUP v02 (borrador)</a></li>
-                <li><a href="proyectos/gee-serietemporal_MUP_v03.html" target="_blank">Serie Temporal - MUP v03 (borrador)</a></li>
-            </ul>  
-        </aside>
-
-        <!-- Contenido principal -->
-        <main class="contenido">
-            <h2>Sobre mí</h2>
-            <p>Soy profesional en Ciencias Ambientales con una especialización en la gestión y conservación de espacios naturales. A lo largo de mi carrera, he adquirido 
-            conocimientos en nuevas tecnologías aplicadas al medio ambiente, como los Sistemas de Información Geográfica (SIG), fotogrametría, LiDAR, teledetección, 
-            geoestadística y análisis de datos mediante herramientas como Google Earth Engine.</p>
-<!-- 
-            <p>Mi experiencia profesional se extiende a trabajar como técnico de medio ambiente en una consultora con enfoque en la especialización forestal. 
-            Además, soy piloto profesional de drones equipados con cámaras RGB y multiespectrales (Micasense RedEdge-mx), lo que me permite realizar trabajos 
-            precisos de análisis y monitoreo ambiental.</p>
-                
-            <p>Poseo formación avanzada en técnicas estadísticas y programación, habiendo cursado un máster en Técnicas Avanzadas en Investigación y Desarrollo Agrario 
-            y Alimentario, y en Técnicas Actuales de Estadística Aplicada. Mi capacidad en Python (PyArcGIS, PyQGIS, GEE) y R me permite realizar modelización 
-            estadística, análisis geoestadístico y optimización de procesos para la toma de decisiones en proyectos ambientales.</p>
-
-            <h2>Proyectos</h2>
-            <p>A lo largo de mi trayectoria, he tenido el privilegio de participar en diversos proyectos que combinan la tecnología y la gestión ambiental para abordar 
-            desafíos relacionados con la conservación de ecosistemas, el monitoreo de la biodiversidad y la optimización de la gestión de recursos naturales.</p>
-
-            <p>Algunos de los proyectos clave en los que he trabajado incluyen el uso de drones equipados con sensores multiespectrales para el monitoreo de cultivos y 
-            bosques, la integración de datos LiDAR y teledetección en proyectos de restauración forestal, así como la implementación de herramientas avanzadas de SIG 
-            para la planificación y gestión territorial.</p>
-                
-            <p>Mi enfoque se centra en la utilización de nuevas tecnologías para mejorar la precisión en la toma de decisiones ambientales y la eficiencia en los procesos
-            de monitoreo. A través de mis habilidades en programación y análisis de datos, he logrado generar soluciones innovadoras y prácticas, aplicables tanto a 
-            empresas como a organismos gubernamentales y organizaciones sin fines de lucro dedicadas a la preservación del medio ambiente.</p>
-            -->
-        </main>
+  <header>
+    <div class="header-row">
+      <a href="index.html" class="logo">
+        <img src="assets/logo.png" alt="Logo de Pedro Alcoba" />
+      </a>
+      <nav class="nav-center">
+        <a href="index.html">Inicio</a>
+        <a href="about.html">Sobre mí</a>
+        <a href="projects.html">Proyectos</a>
+        <a href="blog.html">Blog</a>
+        <a href="contact.html">Contacto</a>
+      </nav>
     </div>
+  </header>
 
-    <footer>
-        <p>&copy; 2025 Pedro Alcoba. Todos los derechos reservados. Contacto: <a href="mailto:pedralcg@gmail.com">pedralcg@gmail.com</a></p>
-    </footer>
+  <main>
+    <section class="hero">
+      <div class="hero-content">
+        <img src="assets/logo.png" alt="Logo Pedro Alcoba" class="hero-logo" />
+        <div>
+          <h1>Pedro Alcoba Gómez</h1>
+          <h3>@pedralcg</h3>
+          <p>Técnico de Medio Ambiente | SIG, Teledetección, Fotogrametría | Desarrollo Web GIS | Fullstack en formación</p>
+          <p>Ambientólogo con +10 años de experiencia aplicando ciencia, tecnología y sostenibilidad a la consultoría ambiental.</p>
+          <p><a href="about.html" class="hero-link">Conóceme →</a></p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Herramientas clave</h2>
+      <ul>
+        <li><strong>SIG:</strong> QGIS, ArcGIS Pro, ArcMap, gvSIG, GRASS, GlobalMapper, Google Earth Pro</li>
+        <li><strong>Teledetección:</strong> Google Earth Engine, SNAP, SCP, Sentinel, Landsat, ERDAS</li>
+        <li><strong>Fotogrametría:</strong> Pix4D, Agisoft Metashape, OpenDroneMap, drones RGB y multiespectrales</li>
+        <li><strong>Web Mapping:</strong> Leaflet, OpenLayers, GeoServer, ArcGIS Online, MapStore</li>
+        <li><strong>Bases de datos:</strong> PostgreSQL/PostGIS, SpatiaLite, MongoDB (en formación)</li>
+        <li><strong>Programación:</strong> Python, R, JavaScript, HTML, CSS, TypeScript</li>
+        <li><strong>Desarrollo Web Fullstack:</strong> React, Node.js (en formación)</li>
+        <li><strong>Campo:</strong> GPS, Orux Maps, FieldMap, QField, Epicollect</li>
+      </ul>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2025 Pedro Alcoba. Todos los derechos reservados.</p>
+  </footer>
 </body>
 </html>

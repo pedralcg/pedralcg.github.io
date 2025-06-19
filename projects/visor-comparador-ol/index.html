@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comparador de Cartografía Histórica vs. Moderna</title>
+
+    <link rel="stylesheet" href="./lib/ol.css">
+    <link rel="stylesheet" href="./lib/ol-ext.css">
+    <link rel="stylesheet" href="style.css">
+    <script src="./lib/proj4.min.js"></script>
+    <script src="./lib/ol.js"></script>
+    <script src="./lib/ol-ext.js"></script>
+    
+</head>
+<body>
+    <header>
+        <div class="header-row">
+            <div class="logo"><img src="../../assets/logo.png" alt="Logo"></div>
+            <nav class="nav-center">
+                <a href="../../index.html">Inicio</a>
+                <a href="../../about.html">Sobre mí</a>
+                <a href="../../projects.html">Proyectos</a>
+                <a href="../../contact.html">Contacto</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <h1>Visor comparador de cartografía</h1>
+        <p>Este visor permite comparar cartografía histórica y moderna usando un deslizador interactivo.</p>
+
+        <div class="map-and-switcher-container">
+            <div id="map" class="map"></div>
+
+            <div id="external-ol-switcher" class="external-ol-switcher">
+                </div>
+        </div>
+
+    </main>
+
+    <footer>
+        <p>Pedro Alcoba Gómez • Proyecto OpenLayers</p>
+    </footer>
+
+    <script src="script.js"></script> 
+</body>
+</html>
