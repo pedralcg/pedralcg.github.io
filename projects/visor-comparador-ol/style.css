@@ -1,39 +1,23 @@
-/* --- VARIABLES --- */
 :root {
-  --primary-color: #3b6b4c;           /* Verde bosque oscuro */
-  --secondary-color: #a7d7a4;         /* Verde pastel */
+  --primary-color: #3b6b4c;
+  --secondary-color: #a7d7a4;
   --text-color: #2e2e2e;
-  --background-color: #f0f9f0;        /* Verde muy claro */
+  --background-color: #f0f9f0;
   --font-main: 'Inter', sans-serif;
-  --panel-bg-color: #ffffff;          /* Fondo blanco para paneles (mapa y selector) */
-  --panel-border-color: #e0e0e0;      /* Borde suave para paneles */
-  --panel-shadow: 0 6px 20px rgba(0, 0, 0, 0.1); /* Sombra para paneles */
-  --panel-radius: 12px;               /* Bordes redondeados para paneles */
-  --highlight-color: #4CAF50;         /* Un verde más vivo para destacar */
+  --panel-bg-color: #ffffff;
+  --panel-border-color: #e0e0e0;
+  --panel-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+  --panel-radius: 12px;
+  --highlight-color: #4CAF50;
 }
 
-/* --- GLOBAL STYLES --- */
 html, body {
   height: 100%;
   margin: 0;
   padding: 0;
-}
-
-body {
-  display: flex;
-  flex-direction: column;
   font-family: var(--font-main);
   background-color: var(--background-color);
   color: var(--text-color);
-  line-height: 1.6;
-}
-
-footer {
-  background-color: var(--primary-color);
-  color: white;
-  padding: 0.4rem 1.0rem;
-  text-align: center;
-  flex-shrink: 0;
 }
 
 /* --- HEADER FLEX --- */
@@ -71,117 +55,136 @@ header nav a {
   font-weight: 700;
 }
 
-main {
-  /* Reducimos aún más el padding superior para acercar el visor */
-  padding: 0.5rem 2rem; /* Más pequeño para el espacio vertical superior/inferior */
-  max-width: 1600px; /* ¡Aumentamos el ancho máximo de la página! */
-  margin: 0 auto;
-  display: flex;
-  flex-direction: column;
-  flex-grow: 1;
-  overflow: hidden; /* Asegura que no haya scroll interno en main */
+footer {
+  background-color: var(--primary-color);
+  color: white;
+  padding: 0.4rem 1.0rem;
+  text-align: center;
 }
 
-h1, h2, h3 {
-  color: var(--primary-color);
-  margin-top: 0.3rem; /* Más pequeño para los títulos */
+h1 {
+  font-size: 1.5rem;
   margin-bottom: 0.3rem;
 }
+
 p {
-    margin-top: 0.3rem; /* Más pequeño para los párrafos */
-    margin-bottom: 0.8rem;
+  margin-top: 0.3em;
+  margin-bottom: 0.3em;
+
 }
 
-/* --- ENLACES GENERALES --- */
-a {
-  color: var(--primary-color);
-  text-decoration: none;
-}
-
-a:visited {
-  color: var(--primary-color);
-}
-
-a:hover,
-a:focus {
-  color: #2d523a;
-  text-decoration: underline;
-}
-
-a:active {
-  color: var(--secondary-color);
-}
-
-/* --- MAP AND SWITCHER CONTAINER (Panel principal) --- */
-.map-and-switcher-container {
-    display: flex;
-    flex-direction: row;
-    gap: 20px;
-    flex-grow: 1; /* Ocupa el espacio restante dentro de main */
-    background-color: var(--panel-bg-color);
-    border: 1px solid var(--panel-border-color);
-    box-shadow: var(--panel-shadow);
-    border-radius: var(--panel-radius);
-    overflow: hidden;
-    /* Eliminar height: 100% aquí para que flex-grow: 1 se encargue totalmente */
-    padding: 20px;
-    box-sizing: border-box;
-    /* Establecer una altura mínima para el contenedor, para que el visor nunca sea demasiado pequeño */
-    min-height: 500px; /* Ajusta este valor según necesites. Ej: 600px, 700px, etc. */
-}
-
-.map {
-  width: 100%;
-  height: 600px;
-}
-
-/* --- MAP STYLES --- */
-#map {
-    width: 100%;
-    flex-grow: 1;
-    min-width: 1000px; /* Aumentamos el ancho mínimo del mapa considerablemente */
-    height: 100%; /* El mapa ocupará toda la altura disponible en map-and-switcher-container */
-    border: none;
-    box-shadow: none;
-    background-color: transparent;
-    border-radius: 0;
-}
-
-/* --- LAYER CONTROLS --- */
-.layer-controls {
+/* Layout contenedor visor + herramientas */
+.map-and-tools {
   display: flex;
-  gap: 1rem;
-  flex-wrap: wrap;
-  align-items: center;
+  gap: 0.2rem;
+  height: 700px;
+  background-color: var(--panel-bg-color);
+  border-radius: var(--panel-radius);
+  box-shadow: var(--panel-shadow);
+  border: 1px solid var(--panel-border-color);
+  overflow: hidden;
+}
+
+/* Sidebar */
+.sidebar {
+  width: 300px;
+  padding: 1rem;
+  background-color: #f8fcf8;
+  border-right: 1px solid var(--panel-border-color);
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  font-size: 0.9rem;
+  overflow-x: hidden; /* Añadido para eliminar scroll lateral */
+}
+
+.sidebar-title {
+  font-size: 1.2rem;
   margin-bottom: 1rem;
+  color: var(--primary-color);
+  font-weight: 600;
 }
 
-.layer-controls label {
-  font-weight: bold;
+.sidebar h2 {
+  font-size: 1.1rem;
+  margin-top: 0.5rem;
+  margin-bottom: 0.2rem;
+  color: var(--primary-color);
 }
 
-.layer-controls select {
-  padding: 0.25rem;
+.sidebar select,
+.sidebar button,
+.sidebar input[type="file"] {
+  margin-bottom: 0.5rem;
+  width: 100%;
+  font-size: 0.9rem;
+  padding: 0.4rem;
 }
 
+.sidebar hr {
+  margin: 1rem 0;
+}
 
-/* --- RESPONSIVE --- */
-@media (max-width: 768px) {
-  main {
-    padding: 1rem;
-    height: auto;
-  }
+/* Mapa */
+.map {
+  flex: 1;
+  height: 100%;
+}
 
-  .map-and-switcher-container {
+.map-and-tools {
+  max-height: calc(100vh - 250px); /* Alto total menos header/párrafos/footer */
+}
+
+/* Popup estilo */
+.ol-popup {
+  position: absolute;
+  background-color: white;
+  padding: 0.6rem 0.8rem;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  box-shadow: var(--panel-shadow);
+  bottom: 12px;
+  left: 12px;
+  min-width: 200px;
+  font-size: 0.9rem;
+  z-index: 1000;
+}
+
+.ol-popup:after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 20px;
+  border-width: 8px;
+  border-style: solid;
+  border-color: white transparent transparent transparent;
+}
+
+.ol-popup-closer {
+  position: absolute;
+  top: 5px;
+  right: 8px; /* No left */
+  font-size: 1.2rem;
+  text-decoration: none;
+  color: #666;
+}
+
+.ol-popup-closer:hover {
+  color: var(--highlight-color);
+}
+
+/* Responsive */
+@media (max-width: 960px) {
+  .map-and-tools {
     flex-direction: column;
-    gap: 15px;
     height: auto;
-    padding: 15px;
-    min-height: auto; /* Desactivar min-height para móviles si es necesario */
   }
-
-  .external-ol-switcher {
+  .sidebar {
     width: 100%;
-    max-height: 300px;
+    border-right: none;
+    border-bottom: 1px solid var(--panel-border-color);
+  }
+  .map {
+    min-height: 500px;
   }
 }

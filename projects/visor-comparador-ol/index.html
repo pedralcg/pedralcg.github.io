@@ -1,58 +1,96 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Comparador de Cartografía Histórica vs. Moderna</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Comparador de Cartografía Histórica vs. Moderna</title>
 
-    <link rel="stylesheet" href="./lib/ol.css">
-    <link rel="stylesheet" href="./lib/ol-ext.css">
-    <link rel="stylesheet" href="style.css">
-    <script src="./lib/proj4.min.js"></script>
-    <script src="./lib/ol.js"></script>
-    <script src="./lib/ol-ext.js"></script>
-    <!-- Proj4 y registro de EPSG:25830 -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/proj4js/2.7.6/proj4.js"></script>
-    <script>
-    proj4.defs("EPSG:25830","+proj=utm +zone=30 +ellps=GRS80 +units=m +no_defs");
-    ol.proj.proj4.register(proj4); // Registrar en OpenLayers
-</script>
-    
+  <!-- Estilos y librerías -->
+  <link rel="stylesheet" href="./lib/ol.css" />
+  <link rel="stylesheet" href="./lib/ol-ext.css" />
+  <link rel="stylesheet" href="style.css" />
+  <script src="./lib/proj4.min.js"></script>
+  <script src="./lib/ol.js"></script>
+  <script src="./lib/ol-ext.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/proj4js/2.7.6/proj4.js"></script>
+  <script>
+    proj4.defs("EPSG:25830", "+proj=utm +zone=30 +ellps=GRS80 +units=m +no_defs");
+    ol.proj.proj4.register(proj4);
+  </script>
 </head>
+
 <body>
-    <header>
-        <div class="header-row">
-            <div class="logo"><img src="../../assets/logo.png" alt="Logo"></div>
-            <nav class="nav-center">
-                <a href="../../index.html">Inicio</a>
-                <a href="../../about.html">Sobre mí</a>
-                <a href="../../projects.html">Proyectos</a>
-                <a href="../../contact.html">Contacto</a>
-            </nav>
-        </div>
-    </header>
+  <!-- ENCABEZADO -->
+  <header>
+    <div class="header-row">
+      <div class="logo"><img src="../../assets/logo.png" alt="Logo" /></div>
+      <nav class="nav-center">
+        <a href="../../index.html">Inicio</a>
+        <a href="../../about.html">Sobre mí</a>
+        <a href="../../projects.html">Proyectos</a>
+        <a href="../../contact.html">Contacto</a>
+      </nav>
+    </div>
+  </header>
 
-    <main>
-        <h1>Visor comparador de cartografía</h1>
-        <p>Este visor permite comparar cartografía histórica y moderna usando un deslizador interactivo.</p>
+  <!-- CONTENIDO PRINCIPAL -->
+  <main>
+    <h1>Visor Comparador de Cartografía</h1>
+    <section>
+        <p>Explora la evolución del territorio a lo largo del tiempo con esta aplicación web interactiva.</p>
+        <p>A través de un deslizador visual, puedes superponer mapas modernos —como el PNOA, cartografía ráster del IGN y OpenStreetMap— con cartografía histórica, como el vuelo de Ruiz de Alda (1929–1930).</p>
+        <p>La interfaz ofrece una barra de herramientas intuitiva para activar o cambiar capas, limpiar el mapa, dibujar geometrías personalizadas y realizar mediciones precisas.</p>
+        <p>El visor está pensado tanto para profesionales como para cualquier persona interesada en descubrir cómo ha cambiado el paisaje a lo largo del tiempo.</p>
+    </section>
 
-        <div class="layer-controls">
-            <label for="modern">Capa moderna:</label>
-            <select id="modern"></select>
+    <div class="map-and-tools">
+      <!-- Sidebar lateral con controles -->
+      <aside class="sidebar">
+        <h1 class="sidebar-title">Barra de Herramientas</h1>
+        <h2>Capas</h2>
+        <label for="modern">Moderna:</label>
+        <select id="modern"></select>
 
-            <label for="historic">Capa histórica:</label>
-            <select id="historic"></select>
-        </div>
+        <label for="historic">Histórica:</label>
+        <select id="historic"></select>
 
-        <div id="map" class="map"></div>
-        </div>
+        <hr />
 
-    </main>
+        <h2>Limpieza de Mapa</h2>
+        <button id="btn-clear">Limpiar</button>
+        <hr />
 
-    <footer>
-        <p>Pedro Alcoba Gómez • Proyecto OpenLayers</p>
-    </footer>
+        <h2>Dibujo</h2>
+        <select id="draw-type">
+          <option value="">Tipo de geometría</option>
+          <option value="Point">Punto</option>
+          <option value="LineString">Línea</option>
+          <option value="Polygon">Polígono</option>
+        </select>
 
-    <script src="script.js" defer></script> 
+        <hr />
+
+        <h2>Medición</h2>
+        <button id="btn-medicion-linea">Medir distancia</button>
+        <button id="btn-medicion-area">Medir superficie</button>
+
+        <!-- <hr /> -->
+
+        <!-- <h2>Cargar archivo</h2> -->
+        <!-- <input type="file" id="file-input" multiple accept=".geojson,.json,.kml,.gpx,.zip" /> -->
+      </aside>
+
+      <!-- Contenedor del visor -->
+      <div id="map" class="map"></div>
+    </div>
+  </main>
+
+  <!-- PIE DE PÁGINA -->
+  <footer>
+    <p>Pedro Alcoba Gómez • Proyecto OpenLayers</p>
+  </footer>
+
+  <!-- Script principal -->
+  <script src="script.js" defer></script>
 </body>
 </html>
