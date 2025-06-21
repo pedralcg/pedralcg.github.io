@@ -1,8 +1,7 @@
-// === script.js ===
-
 console.log("Cargando script.js...");
+const capasCargadas = []
 
-// === 1. Declarar las capas modernas e históricas ===
+// === 1. Declarar capas base modernas e históricas ===
 const capas = {
   modernas: {
     "Ortofotos PNOA Máxima Actualidad (IGN)": new ol.layer.Tile({
@@ -70,12 +69,35 @@ const capas = {
   }
 };
 
-// === 2. Inicializar visor OpenLayers ===
+// === 2. Fuente vectorial para dibujo y medición ===
+const drawSource = new ol.source.Vector();
+const fuenteMedida = new ol.source.Vector();
+
+// === 3. Fuente y capa TM Murcia ===
+const tmMurciaSource = new ol.source.Vector({
+  url: './data/tm_murcia.geojson',
+  format: new ol.format.GeoJSON()
+});
+
+const tmMurciaLayer = new ol.layer.Vector({
+  source: tmMurciaSource,
+  style: new ol.style.Style({
+    stroke: new ol.style.Stroke({
+      color: '#0000ff',
+      width: 1.5
+    }),
+  }),
+  visible: true, // Activa por defecto si quieres que aparezca inicialmente
+  title: 'Términos municipales de Murcia'
+});
+
+// === 4. Inicializar visor OL ===
 const map = new ol.Map({
   target: 'map',
   layers: [
     ...Object.values(capas.modernas),
-    ...Object.values(capas.historicas)
+    ...Object.values(capas.historicas),
+    tmMurciaLayer, // 🧭 Capas auxiliares abajo del todo
   ],
   view: new ol.View({
     center: ol.proj.fromLonLat([-1.2, 38.0]),
@@ -83,11 +105,37 @@ const map = new ol.Map({
   })
 });
 
-// === 3. Control Swipe (deslizador vertical) ===
+// // === 4.5 Actualizar leyenda ===
+// function actualizarLeyenda() {
+//   const contenedor = document.getElementById('leyenda-lista');
+//   contenedor.innerHTML = '';
+
+//   const capasVisibles = map.getLayers().getArray().filter(l => l.getVisible() && l.get('title'));
+//   capasVisibles.forEach(capa => {
+//     const color = capa.get('color') || 'black';
+
+//     const li = document.createElement('li');
+//     const colorBox = document.createElement('span');
+//     colorBox.className = 'leyenda-color';
+//     colorBox.style.backgroundColor = color;
+
+//     li.appendChild(colorBox);
+//     li.appendChild(document.createTextNode(capa.get('title')));
+//     contenedor.appendChild(li);
+//   });
+// }
+
+// // Llama a esta función cada vez que se actualicen las capas visibles:
+// map.getLayers().on('change:length', actualizarLeyenda);
+// map.getLayers().forEach(layer => {
+//   layer.on('change:visible', actualizarLeyenda);
+// });
+
+// === 5. Control Swipe ===
 const swipe = new ol.control.Swipe({ orientation: 'vertical' });
 map.addControl(swipe);
 
-// === 4. Crear y poblar selectores de capas ===
+// === 6. Selectores de capas ===
 const selectModern = document.getElementById('modern');
 const selectHistoric = document.getElementById('historic');
 
@@ -105,7 +153,7 @@ Object.keys(capas.historicas).forEach(nombre => {
   selectHistoric.appendChild(opt);
 });
 
-// === 5. Lógica de actualización de capas en el swipe ===
+// === 7. Actualizar capas swipe ===
 let capaModernaActiva = null;
 let capaHistoricaActiva = null;
 
@@ -113,54 +161,38 @@ function actualizarCapas() {
   const capaModerna = capas.modernas[selectModern.value];
   const capaHistorica = capas.historicas[selectHistoric.value];
 
-  // Ocultar todas las capas primero
   Object.values(capas.modernas).forEach(l => l.setVisible(false));
   Object.values(capas.historicas).forEach(l => l.setVisible(false));
 
   capaModerna.setVisible(true);
   capaHistorica.setVisible(true);
 
-  // Eliminar capas anteriores del swipe
   if (capaModernaActiva) swipe.removeLayer(capaModernaActiva);
   if (capaHistoricaActiva) swipe.removeLayer(capaHistoricaActiva);
 
-  // Añadir nuevas capas al swipe
-  swipe.addLayer(capaHistorica, true);   // izquierda (histórica)
-  swipe.addLayer(capaModerna, false);    // derecha (moderna)
+  swipe.addLayer(capaHistorica, true);
+  swipe.addLayer(capaModerna, false);
 
-  // Guardar referencias para futura eliminación
   capaModernaActiva = capaModerna;
   capaHistoricaActiva = capaHistorica;
 }
-
-// === 6. Eventos al cambiar selector ===
 selectModern.addEventListener('change', actualizarCapas);
 selectHistoric.addEventListener('change', actualizarCapas);
 
-// === 7. Controles extra (pantalla completa y minimapa) ===
+// === 8. Controles adicionales ===
 map.addControl(new ol.control.FullScreen());
 map.addControl(new ol.control.OverviewMap({
-  layers: [new ol.layer.Tile({ source: new ol.source.OSM() })],
+  layers: [new ol.layer.Tile({ source: new ol.source.OSM() }), tmMurciaLayer],
   collapsed: false
 }));
 
-// === 8. Capa para dibujo manual ===
-// === Herramienta de dibujo ===
-const drawSource = new ol.source.Vector();
+// === 9. Herramienta de dibujo ===
 const drawLayer = new ol.layer.Vector({
   source: drawSource,
   style: new ol.style.Style({
-    stroke: new ol.style.Stroke({
-      color: 'rgba(200,0,0,1)',
-      width: 2
-    }),
-    fill: new ol.style.Fill({
-      color: 'rgba(200,0,0,0.4)'
-    }),
-    image: new ol.style.Circle({
-      radius: 6,
-      fill: new ol.style.Fill({ color: 'rgba(200,0,0,1)' })
-    })
+    stroke: new ol.style.Stroke({ color: 'rgba(200,0,0,1)', width: 2 }),
+    fill: new ol.style.Fill({ color: 'rgba(200,0,0,0.4)' }),
+    image: new ol.style.Circle({ radius: 6, fill: new ol.style.Fill({ color: 'rgba(200,0,0,1)' }) })
   })
 });
 map.addLayer(drawLayer);
@@ -179,17 +211,7 @@ drawTypeSelect.addEventListener("change", function () {
   }
 });
 
-// === 8.5 Limpiar mapa ===
-document.getElementById("btn-clear").addEventListener("click", () => {
-  drawSource.clear();
-  fuenteMedida.clear();
-  overlay.setPosition(undefined);
-});
-
-// === 9. Herramienta de medición (distancia y área con popup) ===
-console.log("Cargando herramienta de medición...");
-
-const fuenteMedida = new ol.source.Vector();
+// === 10. Herramienta de medición con popup ===
 const capaMedida = new ol.layer.Vector({
   source: fuenteMedida,
   style: new ol.style.Style({
@@ -202,11 +224,10 @@ map.addLayer(capaMedida);
 
 const popup = document.createElement('div');
 popup.className = 'ol-popup';
-popup.innerHTML = `
-  <div class="popup-content">
-    <button class="popup-close">&times;</button>
-    <div id="popup-medida-text"></div>
-  </div>`;
+popup.innerHTML = `<div class="popup-content">
+  <button class="popup-close">&times;</button>
+  <div id="popup-medida-text"></div>
+</div>`;
 document.body.appendChild(popup);
 
 const overlay = new ol.Overlay({
@@ -223,7 +244,6 @@ popup.querySelector('.popup-close').addEventListener('click', () => {
 });
 
 let drawMedida = null;
-
 function iniciarMedicion(tipo) {
   if (drawMedida) {
     map.removeInteraction(drawMedida);
@@ -259,68 +279,111 @@ function iniciarMedicion(tipo) {
     drawMedida = null;
   });
 }
-
 document.getElementById('btn-medicion-linea')?.addEventListener('click', () => iniciarMedicion('LineString'));
 document.getElementById('btn-medicion-area')?.addEventListener('click', () => iniciarMedicion('Polygon'));
 
-// // === 10. Carga de archivos vectoriales ===
-// document.getElementById('file-input').addEventListener('change', function (e) {
-//   const files = e.target.files;
+// === 11. Limpiar dibujo y medición ===
+document.getElementById("btn-clear").addEventListener("click", () => {
+  drawSource.clear();
+  fuenteMedida.clear();
+  overlay.setPosition(undefined);
 
-//   Array.from(files).forEach(file => {
-//     const reader = new FileReader();
-//     const extension = file.name.split('.').pop().toLowerCase();
+  // Eliminar capas cargadas
+  capasCargadas.forEach(capa => map.removeLayer(capa));
+  capasCargadas.length = 0; // limpiar el array
 
-//     reader.onload = function (event) {
-//       let format, features;
-//       try {
-//         switch (extension) {
-//           case 'geojson':
-//           case 'json':
-//             format = new ol.format.GeoJSON();
-//             break;
-//           case 'kml':
-//             format = new ol.format.KML();
-//             break;
-//           case 'gpx':
-//             format = new ol.format.GPX();
-//             break;
-//           case 'zip':
-//             alert('Carga de SHP no soportada directamente en el navegador. Convierte a GeoJSON.');
-//             return;
-//           default:
-//             alert('Formato no soportado: ' + extension);
-//             return;
-//         }
+  // Limpiamos File input
+  document.getElementById('file-input').value = null;
 
-//         features = format.readFeatures(event.target.result, {
-//           featureProjection: map.getView().getProjection()
-//         });
+});
 
-//         const vectorSource = new ol.source.Vector({ features });
-//         const vectorLayer = new ol.layer.Vector({
-//           source: vectorSource,
-//           style: new ol.style.Style({
-//             stroke: new ol.style.Stroke({ color: 'red', width: 2 }),
-//             fill: new ol.style.Fill({ color: 'rgba(255,0,0,0.4)' }),
-//             image: new ol.style.Circle({ radius: 6, fill: new ol.style.Fill({ color: 'red' }) })
-//           })
-//         });
-//         map.addLayer(vectorLayer);
+// === 12. Control de visibilidad TM ===
+document.getElementById("toggle-tm")?.addEventListener("change", (e) => {
+  tmMurciaLayer.setVisible(e.target.checked);
+});
 
-//       } catch (err) {
-//         console.error("Error procesando el archivo", err);
-//         alert("Error al cargar archivo. Ver consola.");
-//       }
-//     };
+// === 13. Carga de archivos vectoriales ===
+document.getElementById('file-input').addEventListener('change', function (e) {
+  const files = e.target.files;
 
-//     if (["geojson", "json", "kml", "gpx"].includes(extension)) {
-//       reader.readAsText(file);
-//     } else {
-//       alert('Este formato aún no se puede procesar.');
-//     }
-//   });
-// });
+  Array.from(files).forEach(file => {
+    const reader = new FileReader();
+    const extension = file.name.split('.').pop().toLowerCase();
 
-// === 11. Inicialización ===
+    reader.onload = function (event) {
+      let format;
+      switch (extension) {
+        case 'geojson':
+        case 'json':
+          format = new ol.format.GeoJSON();
+          break;
+        case 'kml':
+          format = new ol.format.KML();
+          break;
+        case 'gpx':
+          format = new ol.format.GPX();
+          break;
+        default:
+          alert('Formato no soportado: ' + extension);
+          return;
+      }
+
+      try {
+        const features = format.readFeatures(event.target.result, {
+          featureProjection: map.getView().getProjection()
+        });
+
+        features.forEach(f => f.setStyle(null));
+
+        const vectorSource = new ol.source.Vector({ features });
+        const vectorLayer = new ol.layer.Vector({
+          source: vectorSource,
+          style: new ol.style.Style({
+            stroke: new ol.style.Stroke({ color: 'yellow', width: 2 }),
+            fill: new ol.style.Fill({ color: 'rgba(255, 255, 0, 0.1)' }),
+            image: new ol.style.Circle({
+              radius: 5,
+              fill: new ol.style.Fill({ color: 'yellow' }),
+              stroke: new ol.style.Stroke({ color: 'black', width: 1 })
+            })
+          })
+        });
+        vectorLayer.set('title', file.name);
+        vectorLayer.set('color', 'yellow');
+        map.addLayer(vectorLayer);
+        capasCargadas.push(vectorLayer);
+
+        const extent = vectorSource.getExtent();
+        if (extent) map.getView().fit(extent, { padding: [20, 20, 20, 20] });
+      } catch (err) {
+        console.error("Error cargando archivo:", err);
+        alert("Error al cargar archivo. Consulta la consola.");
+      }
+    };
+
+    reader.readAsText(file);
+
+    // Limpiamos File input
+    document.getElementById('file-input').value = null;
+  });
+});
+// map.addLayer(vectorLayer);
+// capasCargadas.push(vectorLayer); // añade capa a la lista
+
+
+// === 14. Inicializar con selección por defecto ===
 window.addEventListener('load', actualizarCapas);
+
+// === 15. Centrar mapa y minimapa en la capa de términos municipales ===
+tmMurciaSource.once('change', () => {
+  if (tmMurciaSource.getState() === 'ready') {
+    const extent = tmMurciaSource.getExtent();
+
+    // Ajustar vista principal
+    map.getView().fit(extent, {
+      padding: [20, 20, 20, 20],
+      maxZoom: 12,
+      duration: 1000
+    });
+  }
+});

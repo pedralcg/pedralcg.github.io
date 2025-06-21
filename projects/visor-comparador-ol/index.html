@@ -35,11 +35,11 @@
 
   <!-- CONTENIDO PRINCIPAL -->
   <main>
-    <h1>Visor Comparador de Cartografía</h1>
-    <section>
+    <h1 class="h1-title">Visor Comparador de Cartografía Región</h1>
+    <section class="section-explanation">
         <p>Explora la evolución del territorio a lo largo del tiempo con esta aplicación web interactiva.</p>
         <p>A través de un deslizador visual, puedes superponer mapas modernos —como el PNOA, cartografía ráster del IGN y OpenStreetMap— con cartografía histórica, como el vuelo de Ruiz de Alda (1929–1930).</p>
-        <p>La interfaz ofrece una barra de herramientas intuitiva para activar o cambiar capas, limpiar el mapa, dibujar geometrías personalizadas y realizar mediciones precisas.</p>
+        <p>La interfaz ofrece una barra de herramientas intuitiva para añadir, activar o cambiar capas, limpiar el mapa, dibujar geometrías personalizadas y realizar mediciones precisas.</p>
         <p>El visor está pensado tanto para profesionales como para cualquier persona interesada en descubrir cómo ha cambiado el paisaje a lo largo del tiempo.</p>
     </section>
 
@@ -48,12 +48,32 @@
       <aside class="sidebar">
         <h1 class="sidebar-title">Barra de Herramientas</h1>
         <h2>Capas</h2>
-        <label for="modern">Moderna:</label>
-        <select id="modern"></select>
+        <div class="grupo-selectores">
+          <label>Moderna:
+            <select id="modern"></select>
+          </label>
+          <label>Histórica:
+            <select id="historic"></select>
+          </label>
+        </div>
 
-        <label for="historic">Histórica:</label>
-        <select id="historic"></select>
+        <hr />
 
+        <h2>Coberturas auxiliares</h2>
+        <label>
+            <input type="checkbox" id="toggle-tm" checked />
+            TM Región de Murcia
+        </label>
+        
+        <hr />
+
+        <!-- <section class="leyenda">
+          <h2>Leyenda</h2>
+          <ul id="leyenda-lista"></ul>
+        </section> -->
+        <h2>Cargar archivo de cobertura</h2>
+        <h2>(Kml, Gpx, GeoJSON)</h2>
+        <input type="file" id="file-input" multiple accept=".geojson,.json,.kml,.gpx,.zip" />
         <hr />
 
         <h2>Limpieza de Mapa</h2>
@@ -71,13 +91,11 @@
         <hr />
 
         <h2>Medición</h2>
-        <button id="btn-medicion-linea">Medir distancia</button>
-        <button id="btn-medicion-area">Medir superficie</button>
+        <div class="grupo-medicion">
+          <button id="btn-medicion-linea">Medir línea</button>
+          <button id="btn-medicion-area">Medir área</button>
+        </div>
 
-        <!-- <hr /> -->
-
-        <!-- <h2>Cargar archivo</h2> -->
-        <!-- <input type="file" id="file-input" multiple accept=".geojson,.json,.kml,.gpx,.zip" /> -->
       </aside>
 
       <!-- Contenedor del visor -->
@@ -86,8 +104,8 @@
   </main>
 
   <!-- PIE DE PÁGINA -->
-  <footer>
-    <p>Pedro Alcoba Gómez • Proyecto OpenLayers</p>
+  <footer class="footer">
+    <p>© 2025 Pedro Alcoba Gómez · Proyecto OpenLayers                     <small>¿Algo no funciona correctamente? <a href="mailto:pedralcg@gmail.com">Contáctame</a></small></p>
   </footer>
 
   <!-- Script principal -->
