@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Geoestadística Zonal: análisis sencillos y útiles para datos ráster</title>
+  <link rel="icon" href="../favicon.ico" />
+  <link rel="stylesheet" href="../assets/css/style.css" />
+</head>
+<body>
+  <header>
+    <div class="header-row">
+      <a href="../index.html" class="logo">
+        <img src="../assets/img/logos/logo.png" alt="Logo de Pedro Alcoba" />
+      </a>
+      <nav class="nav-center" aria-label="Menú principal">
+        <a href="../index.html">Inicio</a>
+        <a href="../about.html">Sobre mí</a>
+        <a href="../projects.html">Proyectos</a>
+        <a href="../blog.html" aria-current="page">Blog</a>
+        <a href="../contact.html">Contacto</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <h1>Geoestadística Zonal: análisis sencillos y útiles para datos ráster</h1>
+
+    <p>La <strong>geoestadística zonal</strong> es una técnica fundamental para extraer información estadística relevante de datos ráster utilizando unidades espaciales definidas, como polígonos de rodales, parcelas o áreas de estudio.</p>
+
+    <p>Esta herramienta permite calcular estadísticas zonales tales como la altura media, máxima o mínima dentro de un área determinada, la pendiente máxima o mínima, o incluso analizar series temporales de variables climáticas (temperatura, precipitación) para cada zona.</p>
+
+    <h2>¿Qué es el análisis zonal?</h2>
+    <p>El análisis zonal consiste en asignar valores resumen de un ráster a las zonas definidas por polígonos vectoriales. Por ejemplo, en un bosque dividido en rodales, podemos calcular la altura media de la vegetación en cada rodal usando un ráster de alturas LiDAR.</p>
+
+    <h2>¿Por qué es útil?</h2>
+    <ul>
+      <li><strong>Simplifica el manejo de datos espaciales complejos:</strong> Resumiendo grandes volúmenes de datos ráster en estadísticas manejables por zona.</li>
+      <li><strong>Facilita la comparación:</strong> Entre diferentes áreas o períodos temporales, ayudando a detectar patrones o cambios.</li>
+      <li><strong>Permite combinar datos vectoriales y ráster:</strong> Para realizar análisis espaciales integrados y más completos.</li>
+    </ul>
+
+    <h2>Ejemplos de uso práctico</h2>
+    <ul>
+      <li><em>Altura media y máxima de rodales forestales:</em> usando datos LiDAR para identificar rodales con mayor biomasa o potencial de cosecha.</li>
+      <li><em>Pendiente máxima en parcelas:</em> para planificación de obras o análisis de riesgos geotécnicos.</li>
+      <li><em>Valores mensuales de temperatura o precipitación:</em> análisis de series históricas por zona para estudiar el cambio climático local.</li>
+    </ul>
+
+    <h2>Cómo hacer un análisis zonal en QGIS 3.40</h2>
+    <p>QGIS 3.40 incluye una herramienta llamada <em>Estadísticas zonales</em> que facilita este tipo de análisis sin necesidad de programación. A continuación, un paso a paso básico:</p>
+    <ol>
+      <li><strong>Preparar los datos:</strong> Carga el ráster que contiene la información a analizar (por ejemplo, un modelo digital de elevación o una serie temporal de datos climáticos) y la capa vectorial con las zonas (polígonos) sobre las que quieres extraer las estadísticas.</li>
+      <li><strong>Acceder a la herramienta:</strong> Ve a <em>Procesos → Caja de herramientas</em>, busca "Estadísticas zonales" y abre la herramienta.</li>
+      <li><strong>Configurar parámetros:</strong>
+        <ul>
+          <li>Selecciona la capa ráster de entrada.</li>
+          <li>Selecciona la capa vectorial con las zonas (polígonos).</li>
+          <li>Escoge el campo identificador único de la capa vectorial para que los resultados puedan vincularse a cada polígono.</li>
+          <li>Define las estadísticas que quieres calcular: media, máximo, mínimo, desviación estándar, suma, etc.</li>
+          <li>Selecciona una ruta y nombre para el archivo de salida (puede ser una nueva capa vectorial con atributos estadísticos añadidos).</li>
+        </ul>
+      </li>
+      <li><strong>Ejecutar y revisar:</strong> Haz clic en "Ejecutar". QGIS generará una nueva capa vectorial con los resultados estadísticos incorporados como atributos.</li>
+      <li><strong>Visualización y análisis:</strong> Puedes usar estos nuevos atributos para clasificar, filtrar o representar gráficamente las zonas según los valores calculados, facilitando la toma de decisiones.</li>
+    </ol>
+
+    <h2>Ventajas adicionales del uso en QGIS</h2>
+    <ul>
+      <li>Integración directa con otras herramientas y plugins de QGIS, permitiendo un flujo de trabajo completo y personalizado.</li>
+      <li>Posibilidad de automatizar tareas mediante modelos en el diseñador gráfico de procesos o scripts en Python.</li>
+      <li>Visualización inmediata y flexibilidad para combinar con otras capas vectoriales y ráster.</li>
+    </ul>
+
+    <h2>Conclusión</h2>
+    <p>La geoestadística zonal con QGIS es una técnica accesible y poderosa para convertir datos ráster complejos en información útil y aplicable en diversos campos como la gestión ambiental, forestal, agrícola y territorial.</p>
+
+    <p>Si aún no has probado esta funcionalidad, te animo a experimentar con tus propios datos y descubrir el potencial que tiene para mejorar tus análisis espaciales.</p>
+
+  </main>
+
+  <footer>
+    <p>© 2025 Pedro Alcoba · Código abierto bajo licencia <a href="https://opensource.org/licenses/MIT" target="_blank">MIT</a>.</p>
+  </footer>
+</body>
+</html>

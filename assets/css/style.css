@@ -1,0 +1,513 @@
+/* --- VARIABLES --- */
+/* Definición de colores y fuentes que usaremos en todo el sitio */
+:root {
+  --primary-color: #3b6b4c;       /* Verde bosque oscuro */
+  --secondary-color: #a7d7a4;     /* Verde pastel */
+  --text-color: #2e2e2e;          /* Color texto general */
+  --background-color: #f0f9f0;    /* Fondo muy claro */
+  --font-main: 'Inter', sans-serif; /* Fuente principal */
+}
+
+/* --- RESET BOX-SIZING --- */
+/* Aplicamos box-sizing para que padding y border se sumen dentro del ancho y alto definidos */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+/* --- ESTILOS GLOBALES --- */
+/* Ajustamos altura completa y removemos márgenes y padding por defecto */
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+/* Estilo principal del body */
+/* Definimos layout flexible para que footer quede abajo, y estilo básico de fuente y colores */
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;              /* Altura mínima 100% viewport */
+  font-family: var(--font-main);
+  background-color: var(--background-color);
+  color: var(--text-color);
+  line-height: 1.6;
+  margin: 0;
+  padding: 0;
+}
+
+/* --- FOOTER --- */
+/* Fondo oscuro con texto blanco, centrado, con padding */
+footer {
+  background-color: var(--primary-color);
+  color: white;
+  font-size: 0.9rem;
+  padding: 0.5rem 1rem; /* sin padding arriba/abajo */
+  text-align: center;
+  line-height: 1;   /* reduce altura de línea */
+}
+
+/* Elimina margen vertical de elementos comunes dentro del footer */
+footer p,
+footer div,
+footer span {
+  margin: 0;
+  padding: 0;
+}
+
+/* Enlaces dentro del footer en blanco */
+footer a {
+  color: white;
+}
+
+/* --- HEADER --- */
+/* Fondo y texto principal */
+header {
+  background-color: var(--primary-color);
+  color: white;
+  padding: 0.1rem 1.0rem;
+}
+
+/* Contenedor del header con grid para tres columnas */
+/* Logo izquierda, menú centrado, espacio a la derecha */
+.header-row {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  justify-content: center; /* Centra horizontalmente todo */
+  gap: 2rem;               /* Separación entre columnas */
+}
+
+/* Logo con altura fija y alineación a la izquierda */
+.logo img {
+  height: 48px;
+  justify-self: start;
+}
+
+/* Navegación con flexbox */
+/* Espacio entre enlaces y centrado */
+.nav-center {
+  display: flex;
+  gap: 2rem;
+  justify-self: center;
+  flex-wrap: wrap; /* Para que en móvil pueda hacer salto de línea */
+}
+
+/* Estilos de enlaces en header, texto blanco, sin subrayado y en negrita */
+header nav a {
+  color: white !important;
+  text-decoration: none;
+  font-weight: 700;
+}
+
+/* --- MAIN --- */
+/* Área principal que ocupa el espacio entre header y footer */
+/* Máximo ancho para que no sea demasiado ancho en pantallas grandes */
+/* Centramos con margin auto y padding para separar contenido de bordes */
+main {
+  flex: 1;
+  padding: 2rem;
+  max-width: 960px;
+  margin: auto;
+}
+
+/* Añade espacio y separador entre secciones */
+main section {
+  margin: 2rem 0;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--secondary-color);
+}
+
+/* Para la última sección, eliminar el borde inferior */
+main section:last-child {
+  border-bottom: none;
+}
+
+/* Títulos principales en color primario */
+h1, h2, h3 {
+  color: var(--primary-color);
+}
+
+/* --- ENLACES GENERALES --- */
+/* Color base y sin subrayado */
+a {
+  color: var(--primary-color);
+  text-decoration: none;
+}
+
+/* Color al visitar */
+a:visited {
+  color: var(--primary-color);
+}
+
+/* Hover y focus: color más oscuro y subrayado para accesibilidad */
+a:hover,
+a:focus {
+  color: #2d523a;
+  text-decoration: underline;
+}
+
+/* Color activo (cuando se hace click) con color secundario */
+a:active {
+  color: var(--secondary-color);
+}
+
+/* --- SECCIÓN HERO --- */
+/* Fondo color secundario, texto oscuro, layout flex con espacio y alineación centrada */
+/* Padding arriba y abajo reducido para ajustar espacio */
+/* Bordes redondeados */
+.hero {
+  background-color: var(--secondary-color);
+  color: #1d2d20;
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  border-radius: 10px;
+}
+
+/* Contenido dentro del hero */
+/* Flex para alinear horizontalmente con espacio entre elementos */
+/* Máximo ancho y centrado */
+.hero-content {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+/* Remueve margenes extra en divs internos */
+.hero-content > div {
+  margin: 0;
+}
+
+/* Ajustes de márgenes y line-height para títulos en hero */
+.hero-content h1,
+.hero-content h3 {
+  margin-top: 0.3rem;
+  margin-bottom: 0.3rem;
+  line-height: 1.2;
+}
+
+/* Márgenes y line-height para párrafos en hero */
+.hero-content p {
+  margin-top: 0.8rem;
+  margin-bottom: 0.6rem;
+  line-height: 1.3;
+}
+
+/* Logo en hero con tamaño fijo y bordes redondeados */
+.hero-logo {
+  width: 120px;
+  height: auto;
+  border-radius: 10px;
+  flex-shrink: 0;            /* No se encoge en flexbox */
+}
+
+/* Estilo para enlace destacado dentro del hero */
+.hero-link {
+  color: var(--primary-color);
+  font-weight: bold;
+  text-decoration: none;
+}
+
+/* Estilo para la cita o frase destacada */
+.hero-quote {
+  margin-top: 1.5rem;
+  font-style: italic;
+  color: var(--primary-color);
+  border-left: 4px solid var(--primary-color);
+  padding-left: 1rem;
+  font-size: 1rem;
+  max-width: 600px;
+}
+
+/* Opcional: footer dentro del blockquote (si usas) */
+.hero-quote footer {
+  margin-top: 0.5rem;
+  font-style: normal;
+  font-weight: 600;
+  color: #444;
+  text-align: right;
+  font-size: 0.9rem;
+}
+
+/* --- TARJETA DE PROYECTO --- */
+/* Contenedor flexible con miniatura a la izquierda y texto a la derecha */
+/* Fondo blanco, sombra suave, bordes redondeados, espaciado moderno */
+.project-card {
+  display: flex;
+  flex-direction: row;
+  align-items: center; /* Centrado vertical */
+  gap: 1.5rem;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 1rem;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Suaviza hover */
+}
+
+/* Efecto visual al pasar el ratón */
+/* Eleva ligeramente la tarjeta y da más sombra */
+.project-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+}
+
+/* Contenedor de la miniatura para centrarla vertical y horizontalmente */
+.project-thumb-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 150px; /* Altura fija igual a la max-height de la imagen */
+  flex-shrink: 0; /* Evita que se reduzca */
+}
+
+/* Imagen miniatura dentro de la tarjeta */
+.project-thumb {
+  width: 150px;
+  max-height: 150px;
+  border-radius: 20px;
+  object-fit: contain; /* Ajusta imagen sin deformar */
+  display: block; /* Evita espacio abajo de la imagen */
+}
+
+/* Contenedor del texto del proyecto */
+.project-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem; /* Espacio entre párrafos y títulos */
+}
+
+/* Título dentro de la tarjeta */
+.project-card h2 {
+  margin-top: 0;
+  font-size: 1.25rem;
+  color: var(--primary-color);
+  border-bottom: 2px solid var(--secondary-color);
+  padding-bottom: 4px;
+  margin-bottom: 0.5rem;
+}
+
+/* Estado del proyecto (estatus de repositorio, desarrollo, etc) */
+.project-status {
+  font-style: italic;          /* Cursiva */
+  color: var(--text-color);    /* Color similar al texto normal */
+  margin-top: 0.5rem;          /* Separación superior */
+  font-weight: normal;         /* Sin negrita */
+  font-size: 0.95rem;          /* Igual que párrafos */
+}
+
+.project-status em {
+  font-style: italic;          /* Cursiva también para <em> */
+  color: var(--text-color);    /* Igual color que el contenedor */
+  display: block;
+  margin-top: 0.2rem;
+  font-weight: normal;         /* Sin negrita */
+}
+
+/* Párrafos dentro de la tarjeta */
+/* Espaciado uniforme y tamaño legible */
+.project-info p {
+  margin: 0.1rem 0;
+  font-size: 0.95rem;
+  line-height: 1.4;
+}
+
+/* Enlaces del proyecto */
+/* Más peso visual */
+.project-info a {
+  font-weight: 600;
+  color: var(--primary-color);
+  text-decoration: none;
+}
+
+.project-info a:hover,
+.project-info a:focus {
+  text-decoration: underline;
+}
+
+/* --- TARJETA DE POST EN BLOG --- */
+/* Contenedor con fondo blanco, bordes redondeados, sombra suave */
+/* Disposición vertical con margen inferior para separación */
+.blog-post-card {
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 1rem 1.5rem;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+  line-height: 1.5;
+}
+
+/* Título del post */
+.blog-post-card h2 {
+  margin-top: 0;
+  font-size: 1.3rem;
+  color: var(--primary-color);
+  border-bottom: 2px solid var(--secondary-color);
+  padding-bottom: 4px;
+  margin-bottom: 0.7rem;
+}
+
+/* Párrafos del post */
+.blog-post-card p {
+  margin: 0.3rem 0;
+  font-size: 1rem;
+  color: var(--text-color);
+}
+
+/* Texto en cursiva para notas como "Próximamente" */
+.blog-post-card em {
+  color: #666;
+  font-style: italic;
+  font-size: 0.9rem;
+  margin-left: 0.3rem;
+}
+
+/* Enlaces dentro del post */
+.blog-post-card a {
+  color: var(--primary-color);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.blog-post-card a:hover,
+.blog-post-card a:focus {
+  text-decoration: underline;
+}
+
+/* --- Estilos específicos para la página de contacto --- */
+/* Encapsulados bajo .contact-page para no afectar otras páginas */
+.contact-page {
+  padding: 2rem 1.5rem;
+  max-width: 700px;
+  margin: 0 auto;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+.contact-page ul {
+  margin-top: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.contact-page ul li {
+  margin-bottom: 0.6rem;
+}
+
+.contact-page a {
+  color: var(--primary-color);
+  font-weight: 600;
+  transition: color 0.25s ease;
+}
+
+.contact-page a:hover,
+.contact-page a:focus {
+  color: var(--secondary-color);
+  outline: none;
+  text-decoration: underline;
+}
+
+.contact-page p strong {
+  display: inline-block;
+  margin-bottom: 0.3rem;
+}
+
+/* --- RESPONSIVE GENERAL --- */
+
+/* --- NAVIGATION Y HEADER --- */
+/* En pantallas pequeñas (tablets y móviles) se adapta el header y la navegación */
+@media (max-width: 768px) {
+  /* Header en una sola columna */
+  .header-row {
+    grid-template-columns: 1fr;
+    row-gap: 1rem;
+    justify-items: center; /* centra contenido */
+  }
+
+  /* Nav centrada, con salto de línea y menos espacio entre enlaces */
+  .nav-center {
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+}
+
+/* En móviles pequeños, los enlaces ocupan línea completa y se centran */
+@media (max-width: 480px) {
+  .nav-center a {
+    flex: 1 1 100%;  /* Ocupa toda la línea */
+    text-align: center;
+    padding: 0.5rem 0;
+  }
+
+  /* Reduce padding en main para mejor espacio útil */
+  main {
+    padding: 1rem;
+  }
+}
+
+/* --- MAIN --- */
+/* Ajuste específico para pantallas muy pequeñas */
+@media (max-width: 480px) {
+  main {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+}
+
+/* --- TARJETA DE PROYECTO --- */
+/* Ya tienes un media query que adapta las tarjetas a columna y centra contenido */
+@media (max-width: 768px) {
+  .project-card {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .project-thumb-container {
+    height: auto; /* Se adapta al contenido */
+    margin-bottom: 1rem;
+  }
+
+  .project-thumb {
+    width: 100%;
+    height: auto;
+    max-height: none;
+  }
+
+  .project-info {
+    width: 100%;
+  }
+}
+
+/* --- TARJETA DE POST EN BLOG --- */
+/* Ajusta padding y margen para posts en móviles pequeños */
+@media (max-width: 480px) {
+  .blog-post-card {
+    padding: 0.8rem 1rem;
+    margin-bottom: 1rem;
+  }
+}
+
+/* --- PÁGINA DE CONTACTO --- */
+/* Ya tienes un media query para .contact-page ajustando padding y tamaño */
+/* Aquí lo repetimos con más detalle para evitar olvidos */
+@media (max-width: 768px) {
+  .contact-page {
+    padding: 1.5rem 1rem;
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .contact-page {
+    padding: 1rem 0.5rem;
+    font-size: 0.95rem;
+  }
+}
