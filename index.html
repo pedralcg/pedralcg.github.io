@@ -3,25 +3,19 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Inicio</title>
+  <title>Pedro Alcoba | Técnico en Medio Ambiente y Desarrollo Web GIS</title>
+  <meta name="description" content="Portafolio de Pedro Alcoba Gómez: SIG, teledetección, fotogrametría y desarrollo Web GIS.">
   <link rel="icon" href="favicon.ico" type="image/x-icon">
-  <link rel="stylesheet" href="assets/css/style.css" />
+  <link rel="stylesheet" href="/assets/css/style.css" />
+
+  <!-- Meta etiquetas sociales -->
+  <meta property="og:title" content="Pedro Alcoba | Técnico en Medio Ambiente y Desarrollo Web GIS">
+  <meta property="og:description" content="Portafolio de Pedro Alcoba Gómez: SIG, teledetección, fotogrametría y desarrollo Web GIS.">
+  <meta property="og:image" content="assets/img/logos/logo.png">
+  <meta property="og:type" content="website">
 </head>
 <body>
-  <header>
-    <div class="header-row">
-      <a href="index.html" class="logo">
-        <img src="assets/img/logos/logo.png" alt="Logo de Pedro Alcoba" />
-      </a>
-      <nav class="nav-center" aria-label="Menú principal">
-        <a href="index.html" aria-current="page">Inicio</a>
-        <a href="about.html">Sobre mí</a>
-        <a href="projects.html">Proyectos</a>
-        <a href="blog.html">Blog</a>
-        <a href="contact.html">Contacto</a>
-      </nav>
-    </div>
-  </header>
+  <div id="header" ></div>
 
   <main>
     <section class="hero">
@@ -29,36 +23,46 @@
         <img src="assets/img/logos/logo.png" alt="Logo Pedro Alcoba" class="hero-logo" />
         <div>
           <h1>Pedro Alcoba Gómez</h1>
-          <h3>@pedralcg</h3>
-          <p>Técnico de Medio Ambiente | SIG, Teledetección, Fotogrametría | Desarrollo Web GIS | Fullstack en formación</p>
-          <p>Ambientólogo con +10 años de experiencia aplicando ciencia, tecnología y sostenibilidad a la consultoría ambiental.</p>
-          <p><a href="about.html" class="hero-link">Conóceme →</a></p>
+          <h2>Técnico en Medio Ambiente & Desarrollo Web GIS</h2>
+          <p>
+            Ambientólogo con más de 10 años de experiencia, especializado en 
+            <strong>SIG</strong>, <strong>teledetección</strong>, <strong>fotogrametría</strong> 
+            y <strong>desarrollo de visores Web GIS</strong>.
+          </p>
+          <p>
+            <a href="about.html" class="hero-link">Conóceme →</a>
+            <a href="projects.html" class="hero-link">Explora mis proyectos →</a>
+          </p>
 
-          <!-- Frase integrada dentro del hero -->
           <blockquote class="hero-quote">
-            La mejor manera de entender un territorio es explorarlo desde todos los ángulos: sobre el mapa, en el código y caminando sobre él.
+            La mejor manera de entender un territorio es explorarlo desde todos los ángulos: 
+            sobre el mapa, en el código y caminando sobre él.
           </blockquote>
         </div>
       </div>
     </section>
 
-    <section>
-      <h2>Herramientas clave</h2>
-      <ul>
-        <li><strong>SIG:</strong> QGIS, ArcGIS Pro, ArcMap, gvSIG, GRASS, GlobalMapper, Google Earth Pro</li>
-        <li><strong>Teledetección:</strong> Google Earth Engine, SNAP, SCP, Sentinel, Landsat, ERDAS</li>
-        <li><strong>Fotogrametría:</strong> Pix4D, Agisoft Metashape, OpenDroneMap, drones RGB y multiespectrales</li>
-        <li><strong>Web Mapping:</strong> Leaflet, OpenLayers, GeoServer, ArcGIS Online, MapStore</li>
-        <li><strong>Bases de datos:</strong> PostgreSQL/PostGIS, SpatiaLite, MongoDB (en formación)</li>
-        <li><strong>Programación:</strong> Python, R, JavaScript, HTML, CSS, TypeScript</li>
-        <li><strong>Desarrollo Web Fullstack:</strong> React, Node.js (en formación)</li>
-        <li><strong>Campo:</strong> GPS, Orux Maps, FieldMap, QField, Epicollect</li>
-      </ul>
+    <!-- Sección rápida de accesos -->
+    <section class="quick-links">
+      <div class="quick-card">
+        <h3>📌 Proyectos</h3>
+        <p>Explora mis visores, análisis SIG y desarrollos Web GIS.</p>
+        <a href="projects.html" class="btn-link">Ver proyectos</a>
+      </div>
+      <div class="quick-card">
+        <h3>📝 Blog</h3>
+        <p>Artículos sobre cartografía, análisis espacial y nuevas tecnologías.</p>
+        <a href="blog.html" class="btn-link">Leer blog</a>
+      </div>
+      <div class="quick-card">
+        <h3>📬 Contacto</h3>
+        <p>¿Quieres colaborar o tienes una propuesta? Escríbeme directamente.</p>
+        <a href="contact.html" class="btn-link">Contactar</a>
+      </div>
     </section>
   </main>
 
-  <footer>
-    <p>© 2025 Pedro Alcoba · Código abierto bajo licencia <a href="https://opensource.org/licenses/MIT" target="_blank">MIT</a>.</p>
-  </footer>
+  <div id="footer"></div>
+  <script src="/assets/js/include.js"></script>
 </body>
 </html>

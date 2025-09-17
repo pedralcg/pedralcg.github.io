@@ -1,0 +1,26 @@
+[
+  {
+    "title": "Mapa Etnoturístico: Ruta de las Fundiciones",
+    "description": "Diseño de un mapa interactivo con Leaflet para la visualización de puntos de interés en una ruta cultural en La Unión (Murcia).",
+    "link": "https://pedralcg.github.io/visor-ruta-etnografica-leaflet/",
+    "thumbnail": "assets/img/projects/visor-ruta-etnografica-leaflet.png",
+    "status": "En desarrollo, con cambios importantes previstos próximamente, incluyendo nuevos visores WMTS y funcionalidad de exportar.",
+    "technologies": ["Leaflet", "GeoJSON", "GLightbox", "OpenWeather"]
+  },
+  {
+    "title": "Visor comparativo de cartografía histórica y actual",
+    "description": "Visor web desarrollado con HTML, CSS y JavaScript usando OpenLayers que permite explorar y comparar mapas históricos y actuales mediante un deslizador interactivo. Incluye carga de archivos propios, dibujo y medición.",
+    "link": "https://pedralcg.github.io/visor-comparador-ol/",
+    "thumbnail": "assets/img/projects/visor-comparador-ol.png",
+    "status": "Proyecto activo.  Puede tener cambios ligeros en las próximas semanas.",
+    "technologies": ["HTML", "CSS", "JavaScript", "OpenLayers", "WMS/WMTS", "GeoJSON", "PNG"]
+  },
+  {
+    "title": "MapViewer ArcGIS Online IDEN",
+    "description": "Visor de datos SIG publicado en ArcGIS Online con capas dinámicas y simbología avanzada.",
+    "link": "/projects/arcgis-online-iframe.html",
+    "thumbnail": "assets/img/projects/project-in-process.jpg",
+    "status": "Proyecto publicado",
+    "technologies": ["ArcGIS Online", "WebMap", "Feature Layers"]
+  }
+]

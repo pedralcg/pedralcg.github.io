@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>IDEN | Visor Integral - Pedro Alcoba</title>
+  <meta name="description" content="Sección de pruebas y borradores de visores SIG de Pedro Alcoba Gómez para el proyecto Integral.">
+  <link rel="icon" href="/favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="/assets/css/style.css" />
+  <!-- ArcGIS embeddable components -->
+  <script type="module" src="https://js.arcgis.com/embeddable-components/4.33/arcgis-embeddable-components.esm.js"></script>
+</head>
+<body>
+  <div id="header"></div>
+
+  <main>
+    <section>
+      <h1>Visor Integral · Pruebas y Borradores</h1>
+      <p>
+        Esta página reúne <strong>visores experimentales, borradores y pruebas técnicas</strong>
+        desarrollados en torno al proyecto <em>Recursos forestales del territorio de Integral</em>.
+      </p>
+    </section>
+
+    <section>
+      <h2>🗺️ Recursos disponibles</h2>
+      <ul>
+        <li><a href="https://arcg.is/1rn9rP0" target="_blank" rel="noopener noreferrer">Visor MapViewer · Recursos forestales del territorio de Integral</a></li>
+        <li><span style="opacity:0.6;">Dashboard · En proceso</span></li>
+        <li><span style="opacity:0.6;">Atlas · En proceso</span></li>
+        <li><span style="opacity:0.6;">Otras Apps · En proceso</span></li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>🌍 Visor MapViewer (embebido)</h2>
+      <p>
+        Ejemplo de visor integrado desde <strong>ArcGIS Online</strong>.
+        Incluye leyenda y opciones básicas de navegación.
+      </p>
+      <arcgis-embedded-map 
+        style="height:600px;width:100%;max-width:1000px;" 
+        item-id="3f7bc38661d74520946f9f5f4423bcbe"
+        theme="light" heading-enabled legend-enabled share-enabled
+        center="-1.961704143175549,37.9642605308912"
+        scale="1155581.108577" 
+        portal-url="https://iden.maps.arcgis.com"
+        aria-label="Mapa embebido de recursos forestales en ArcGIS Online">
+      </arcgis-embedded-map>
+    </section>
+
+    <section>
+      <h2>📊 Dashboard (en preparación)</h2>
+      <p>
+        Próximamente se integrará aquí un <strong>Dashboard embebido</strong> 
+        para visualizar indicadores y métricas de los recursos forestales.
+      </p>
+      <!-- Ejemplo futuro:
+      <arcgis-embedded-dashboard 
+        item-id="XXXXXXXXXXXX"
+        style="height:600px;width:100%;max-width:1000px;">
+      </arcgis-embedded-dashboard>
+      -->
+    </section>
+
+    <section>
+      <h2>📖 Atlas (en preparación)</h2>
+      <p>
+        Próximamente se integrará aquí un <strong>Atlas interactivo</strong>
+        con mapas temáticos y colecciones cartográficas.
+      </p>
+    </section>
+
+    <section>
+      <h2>📌 Nota</h2>
+      <p>
+        Estos recursos están en <em>fase de desarrollo</em>. 
+        Algunos visores pueden no estar disponibles, sufrir cambios 
+        o no estar optimizados todavía para dispositivos móviles.
+      </p>
+    </section>
+  </main>
+
+  <div id="footer"></div>
+  <script src="/assets/js/include.js"></script>
+</body>
+</html>

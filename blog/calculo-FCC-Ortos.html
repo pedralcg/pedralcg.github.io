@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>FCC con ortoimágenes RGB: una metodología simple y eficaz en QGIS</title>
+  <link rel="icon" href="../favicon.ico" />
+  <link rel="stylesheet" href="../assets/css/style.css" />
+</head>
+<body>
+  <div id="header"></div>
+
+  <main>
+    <h1>FCC con ortoimágenes RGB: una metodología simple y eficaz en QGIS</h1>
+
+    <p>La <strong>Fracción de Cobertura del Copo (FCC)</strong> es un indicador fundamental en estudios de vegetación y gestión forestal. Esta guía explica cómo calcularla a partir de una ortofoto RGB utilizando herramientas básicas de <strong>QGIS</strong>.</p>
+
+    <h2>1. Preparación del proyecto</h2>
+    <ul>
+      <li>Abrir QGIS (versión 3.22 o superior).</li>
+      <li>Cargar la ortoimagen (ECW o TIFF) arrastrándola al lienzo.</li>
+      <li>Verificar la proyección:
+        <ul>
+          <li>Si está en EPSG:4326, reproyectar a EPSG:25830 (ETRS89 / UTM zona 30N).</li>
+          <li>Menú: <em>Raster → Proyecciones → Reproyectar</em>.</li>
+        </ul>
+      </li>
+    </ul>
+
+    <h2>2. Delimitación del área de estudio</h2>
+    <ul>
+      <li>Dibujar la parcela como un polígono shapefile: <em>Capa → Crear capa → Nueva capa shapefile</em>.</li>
+      <li>Alternativamente, cargar una capa existente: SIGPAC, Catastro, Montes de Utilidad Pública, etc.</li>
+      <li>Guardar la capa para su uso posterior.</li>
+    </ul>
+
+    <h2>3. Cálculo del índice Exceso de Verde (ExG)</h2>
+    <p>El índice <strong>ExG</strong> resalta la vegetación en imágenes RGB. Su fórmula es:</p>
+    <pre><code>ExG = 2·G - R - B</code></pre>
+    <p>En QGIS:</p>
+    <ul>
+      <li>Abrir <em>Raster → Calculadora raster</em>.</li>
+      <li>Usar la expresión:</li>
+      <pre><code>("ortofoto@2" * 2) - "ortofoto@1" - "ortofoto@3"</code></pre>
+      <li>Guardar como <code>ExG.tif</code>.</li>
+    </ul>
+
+    <h2>4. Análisis del histograma</h2>
+    <ul>
+      <li>Abrir las propiedades del ráster <code>ExG.tif</code>.</li>
+      <li>Ir a la pestaña <strong>Histograma</strong> y hacer clic en "Actualizar histograma".</li>
+      <li>Interpretar el rango:
+        <ul>
+          <li>Valores negativos o cercanos a cero = suelo, sombra.</li>
+          <li>Valores positivos = vegetación.</li>
+        </ul>
+      </li>
+      <li>Estimar un umbral inicial (por ejemplo, 10) y ajustarlo visualmente.</li>
+    </ul>
+
+    <h2>5. Generar mapa binario</h2>
+    <ul>
+      <li>Usar nuevamente la Calculadora Raster con la expresión:</li>
+      <pre><code>("ExG@1" > 10)</code></pre>
+      <li>Guardar como <code>Mapa_binario.tif</code> (1 = vegetación, 0 = no vegetación).</li>
+    </ul>
+
+    <h2>6. Calcular FCC por parcela</h2>
+    <ul>
+      <li>Ir a <em>Procesos → Caja de herramientas → Estadísticas zonales</em>.</li>
+      <li>Parámetros:
+        <ul>
+          <li><strong>Ráster:</strong> Mapa_binario.tif</li>
+          <li><strong>Vectorial:</strong> capa de parcela</li>
+          <li><strong>Estadística:</strong> Media (resultado entre 0 y 1 = FCC)</li>
+        </ul>
+      </li>
+    </ul>
+
+    <h2>7. Productos derivados</h2>
+
+    <h3>🟦 A. Malla regular con FCC</h3>
+    <ul>
+      <li>Crear malla: <em>Vector → Herramientas de investigación → Crear malla</em> (por ejemplo, 10x10 m).</li>
+      <li>Calcular la media de píxeles vegetados en cada celda con estadísticas zonales.</li>
+      <li>Obtendrás un mapa continuo de FCC.</li>
+    </ul>
+
+    <h3>🗂️ B. FCC por unidades de gestión</h3>
+    <ul>
+      <li>Cruzar el mapa binario con capas forestales, catastrales o de hábitats.</li>
+      <li>Permite obtener la FCC para cada unidad administrativa o de gestión.</li>
+    </ul>
+
+    <h3>📉 C. Análisis temporal</h3>
+    <ul>
+      <li>Repetir el análisis con ortofotos de distintas fechas.</li>
+      <li>Restar mapas binarios para detectar ganancia o pérdida de vegetación.</li>
+      <li>Muy útil en seguimiento post-incendio o proyectos de restauración.</li>
+    </ul>
+
+    <h2>8. Validación y ajuste del umbral</h2>
+    <ul>
+      <li>Comparar visualmente el mapa binario con la ortoimagen original.</li>
+      <li>Ajustar el umbral si hay errores (suelo clasificado como vegetación o viceversa).</li>
+      <li>Realizar comprobaciones de campo si es posible.</li>
+    </ul>
+
+    <h2>9. Exportación de resultados</h2>
+    <ul>
+      <li>Mapa binario para informes visuales (.tif).</li>
+      <li>Ráster FCC sobre malla para análisis espacial (.tif o .gpkg).</li>
+      <li>Tabla de FCC por parcela (.CSV o shapefile).</li>
+    </ul>
+
+    <h2>10. Aplicaciones prácticas</h2>
+    <ul>
+      <li>Evaluación de cobertura arbórea y arbustiva en gestión forestal.</li>
+      <li>Seguimiento de actuaciones de restauración ecológica.</li>
+      <li>Priorización de zonas para tratamientos selvícolas.</li>
+      <li>Comparativa multitemporal de la evolución de la vegetación.</li>
+    </ul>
+
+    <h2>Conclusión</h2>
+    <p>Este flujo de trabajo permite calcular de forma rápida y reproducible la cobertura vegetal desde imágenes RGB. Gracias al uso de QGIS y herramientas gratuitas, se adapta tanto a análisis técnicos en consultoras como a trabajos académicos o institucionales.</p>
+
+  </main>
+
+<div id="footer"></div>
+  <script src="/assets/js/include.js"></script>
+</body>
+</html>

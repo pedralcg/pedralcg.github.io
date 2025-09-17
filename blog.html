@@ -3,57 +3,33 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Blog - Pedro Alcoba</title>
+  <title>Blog | Pedro Alcoba</title>
+  <meta name="description" content="Artículos y tutoriales de SIG, teledetección y desarrollo Web GIS por Pedro Alcoba Gómez.">
   <link rel="icon" href="favicon.ico" />
   <link rel="stylesheet" href="assets/css/style.css" />
 </head>
 <body>
-  <header>
-    <div class="header-row">
-      <a href="index.html" class="logo">
-        <img src="assets/img/logos/logo.png" alt="Logo de Pedro Alcoba" />
-      </a>
-      <nav class="nav-center" aria-label="Menú principal">
-        <a href="index.html">Inicio</a>
-        <a href="about.html">Sobre mí</a>
-        <a href="projects.html">Proyectos</a>
-        <a href="blog.html" aria-current="page">Blog</a>
-        <a href="contact.html">Contacto</a>
-      </nav>
-    </div>
-  </header>
+  <div id="header"></div>
 
   <main>
     <h1>Blog</h1>
 
-    <section>
-      <article class="blog-post-card">
-        <h2><a href="blog/geoestadistica-zonal.html">Geoestadística Zonal: análisis sencillos y útiles para datos ráster</a></h2>
-        <p>Explora cómo esta herramienta puede ayudarte a extraer estadísticas zonales y mejorar tu análisis espacial.</p>
-      </article>
+    <!-- Buscador y filtros -->
+    <div class="search-box">
+      <input type="text" id="blog-search" placeholder="Buscar en el blog..." />
+    </div>
+    <div id="blog-filters" class="blog-filters"></div>
 
-      <article class="blog-post-card">
-        <h2>Creación de Mallas vectoriales para análisis geoestadísticos</h2>
-        <em>(Próximamente)</em>
-        <p>Una introducción práctica a la generación de mallas vectoriales para análisis espaciales avanzados.</p>
-      </article>
-
-      <article class="blog-post-card">
-        <h2>Cálculo de Insolación con GRASS y QGIS</h2>
-        <em>(Próximamente)</em>
-        <p>Cómo utilicé GRASS GIS y QGIS para calcular la insolación en grandes extensiones. Automatización, scripting y análisis espacial.</p>
-      </article>
-
-      <article class="blog-post-card">
-        <h2>Primeras pruebas con Leaflet</h2>
-        <em>(Próximamente)</em>
-        <p>Exploración de librerías ligeras para visores SIG. Leaflet, capas GeoJSON y conectividad con PostgreSQL.</p>
-      </article>
+    <section id="blog-container">
+      <!-- Posts dinámicos desde blog.json -->
+      <noscript>
+        <p>⚠️ Activa JavaScript para ver los proyectos.</p>
+      </noscript>
     </section>
   </main>
 
-  <footer>
-    <p>© 2025 Pedro Alcoba · Código abierto bajo licencia <a href="https://opensource.org/licenses/MIT" target="_blank">MIT</a>.</p>
-  </footer>
+  <div id="footer"></div>
+  <script src="assets/js/include.js"></script>
+  <script src="assets/js/blog.js"></script>
 </body>
 </html>

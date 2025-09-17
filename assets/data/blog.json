@@ -1,0 +1,39 @@
+[
+  {
+    "title": "Geoestadística Zonal: análisis sencillos y útiles para datos ráster",
+    "description": "Explora cómo esta herramienta puede ayudarte a extraer estadísticas zonales y mejorar tu análisis espacial.",
+    "link": "blog/geoestadistica-zonal.html",
+    "status": "published",
+    "date": "2025-09-01",
+    "categories": ["QGIS", "Geoestadística", "Ráster"]
+  },
+  {
+    "title": "FCC con ortoimágenes RGB: una metodología simple y eficaz en QGIS",
+    "description": "Explora cómo calcular la FCC a partir de una ortofoto RGB ya sea de dron o satélite.",
+    "link": "blog/calculo-FCC-Ortos.html",
+    "status": "published",
+    "date": "2025-08-20",
+    "categories": ["Fotogrametría", "QGIS", "Teledetección"]
+  },
+  {
+    "title": "Creación de Mallas vectoriales para análisis geoestadísticos",
+    "description": "Una introducción práctica a la generación de mallas vectoriales para análisis espaciales avanzados.",
+    "status": "draft",
+    "date": "2025-07-15",
+    "categories": ["Geoestadística", "Vectores", "Modelización"]
+  },
+  {
+    "title": "Cálculo de Insolación con GRASS y QGIS",
+    "description": "Cómo utilicé GRASS GIS y QGIS para calcular la insolación en grandes extensiones.",
+    "status": "draft",
+    "date": "2025-07-01",
+    "categories": ["QGIS", "GRASS GIS", "Energía Solar"]
+  },
+  {
+    "title": "Primeras pruebas con Leaflet",
+    "description": "Exploración de librerías ligeras para visores SIG con capas GeoJSON y conectividad con PostgreSQL.",
+    "status": "draft",
+    "date": "2025-06-10",
+    "categories": ["Leaflet", "WebGIS", "PostgreSQL"]
+  }
+]
