@@ -26,9 +26,9 @@
       <h2>🗺️ Recursos disponibles</h2>
       <ul>
         <li><a href="https://arcg.is/1rn9rP0" target="_blank" rel="noopener noreferrer">Visor MapViewer · Recursos forestales del territorio de Integral</a></li>
-        <li><span style="opacity:0.6;">Dashboard · En proceso</span></li>
-        <li><span style="opacity:0.6;">Atlas · En proceso</span></li>
-        <li><span style="opacity:0.6;">Otras Apps · En proceso</span></li>
+        <li><a href="https://iden.maps.arcgis.com/apps/dashboards/f59f7088bf53406f8928e37a36f45384" target="_blank" rel="noopener noreferrer">Dashboard · Recursos forestales del territorio de Integral</a></li>
+        <!-- <li><a href="https://iden.maps.arcgis.com/apps/instant/atlas/index.html?appid=66c1a02800454e7b99fbfda3af3a3742" target="_blank" rel="noopener noreferrer">Atlas · Recursos forestales del territorio de Integral</a></li> -->
+        <!-- <li><a href="https://iden.maps.arcgis.com/apps/instant/sidebar/index.html?appid=a33fbde9a484407e8f0344eda2017ff7" target="_blank" rel="noopener noreferrer">APP Barra Lateral · Recursos forestales del territorio de Integral</a></li> -->
       </ul>
     </section>
 
@@ -39,7 +39,7 @@
         Incluye leyenda y opciones básicas de navegación.
       </p>
       <arcgis-embedded-map 
-        style="height:600px;width:100%;max-width:1000px;" 
+        style="height:800px;width:100%;max-width:1000px;" 
         item-id="3f7bc38661d74520946f9f5f4423bcbe"
         theme="light" heading-enabled legend-enabled share-enabled
         center="-1.961704143175549,37.9642605308912"
@@ -50,26 +50,44 @@
     </section>
 
     <section>
-      <h2>📊 Dashboard (en preparación)</h2>
+      <h2>📊 Dashboard (embebido)</h2>
       <p>
-        Próximamente se integrará aquí un <strong>Dashboard embebido</strong> 
+        <strong>Dashboard embebido</strong> 
         para visualizar indicadores y métricas de los recursos forestales.
       </p>
-      <!-- Ejemplo futuro:
-      <arcgis-embedded-dashboard 
-        item-id="XXXXXXXXXXXX"
-        style="height:600px;width:100%;max-width:1000px;">
-      </arcgis-embedded-dashboard>
-      -->
+      <iframe
+        src="https://iden.maps.arcgis.com/apps/dashboards/f59f7088bf53406f8928e37a36f45384"
+        style="width:100%; height:800px; max-width:1000px; border:none;"
+        title="Dashboard de recursos forestales en ArcGIS Online"
+        allowfullscreen>
+      </iframe>
     </section>
 
-    <section>
-      <h2>📖 Atlas (en preparación)</h2>
+    <!-- <section>
+      <h2>📖 Atlas (embebido)</h2>
       <p>
-        Próximamente se integrará aquí un <strong>Atlas interactivo</strong>
+        <strong>Atlas interactivo</strong>
         con mapas temáticos y colecciones cartográficas.
       </p>
-    </section>
+      <iframe 
+        src="https://iden.maps.arcgis.com/apps/instant/atlas/index.html?appid=66c1a02800454e7b99fbfda3af3a3742" 
+        width="100%" height="800" frameborder="0" style="border:0" allowfullscreen
+        >No se admiten iFrames en esta página.
+      </iframe>
+    </section> -->
+
+    <!-- <section>
+      <h2>💻 App de barra lateral (embebido)</h2>
+      <p>
+        <strong>App de barra lateral interactiva</strong>
+        con mapas temáticos y colecciones cartográficas.
+      </p>
+      <iframe 
+        src="https://iden.maps.arcgis.com/apps/instant/sidebar/index.html?appid=a33fbde9a484407e8f0344eda2017ff7" 
+        width="100%" height="800" frameborder="0" style="border:0" allowfullscreen
+        >No se admiten iFrames en esta página.
+      </iframe>
+    </section> -->
 
     <section>
       <h2>📌 Nota</h2>
