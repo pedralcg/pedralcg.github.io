@@ -46,6 +46,18 @@ function renderProjects(projects) {
          </ul>`
       : "";
 
+    // Normalizar el estado para crear una clase CSS
+    const statusClass = (proj.status || '').toLowerCase().replace(/ /g, '-').replace('á', 'a').replace('ó', 'o');
+
+    // Construir la información del estado
+    let statusInfo = '';
+    if (proj.status) {
+        statusInfo = `<p class="project-status status-${statusClass}">Estado: <em>${proj.status}</em></p>`;
+        if (proj.status_description) {
+            statusInfo = `<p class="project-status status-${statusClass}">Estado: <em>${proj.status}</em> <br> <span class="status-description">${proj.status_description}</span></p>`;
+        }
+    }
+
     const card = `
       <a href="${proj.url}" target="_blank" rel="noopener noreferrer" class="project-card-link">
         <div class="project-card">
@@ -54,7 +66,7 @@ function renderProjects(projects) {
           </div>
           <div class="project-info">
             <h2>${proj.title}</h2>
-            ${proj.status ? `<p class="project-status">Estado: <em>${proj.status}</em></p>` : ""}
+            ${statusInfo}
             <p>${proj.description}</p>
             ${techList}
           </div>

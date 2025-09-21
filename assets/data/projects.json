@@ -1,10 +1,16 @@
 [
   {
+    "_comment1": "Las categorías de estado de los proyectos son:",
+    "_comment2": "Proyecto Activo: Completo, funcional y con mantenimiento regular.",
+    "_comment3": "En Desarrollo: En progreso, funcional pero con errores o incompletas.",
+    "_comment4": "Archivado: Completo, pero sin mantenimiento ni actualizaciones activas.",
+    "_comment5": "Planificado: En fase de conceptualización, aún no iniciado.",
     "title": "Mapa Etnoturístico: Ruta de las Fundiciones",
     "description": "Diseño de un mapa interactivo con Leaflet para la visualización de puntos de interés en una ruta cultural en La Unión (Murcia).",
     "url": "https://pedralcg.github.io/visor-ruta-etnografica-leaflet/",
     "thumbnail": "assets/img/projects/visor-ruta-etnografica-leaflet.png",
-    "status": "En desarrollo, con cambios importantes previstos próximamente, incluyendo nuevos visores WMTS y funcionalidad de exportar.",
+    "status": "En Desarrollo",
+    "status_description": "Con cambios importantes previstos próximamente, incluyendo nuevos visores WMTS y funcionalidad de exportar.",
     "technologies": ["Leaflet", "GeoJSON", "GLightbox", "OpenWeather"]
   },
   {
@@ -12,15 +18,26 @@
     "description": "Visor web desarrollado con HTML, CSS y JavaScript usando OpenLayers que permite explorar y comparar mapas históricos y actuales mediante un deslizador interactivo. Incluye carga de archivos propios, dibujo y medición.",
     "url": "https://pedralcg.github.io/visor-comparador-ol/",
     "thumbnail": "assets/img/projects/visor-comparador-ol.png",
-    "status": "Proyecto activo.  Puede tener cambios ligeros en las próximas semanas.",
+    "status": "Activo",
+    "status_description": "Puede tener cambios ligeros en las próximas semanas.",
     "technologies": ["HTML", "CSS", "JavaScript", "OpenLayers", "WMS/WMTS", "GeoJSON", "PNG"]
+  },
+  {
+    "title": "Visor de panorámicas 360º",
+    "description": "Visor web para visualizar la ubicación de las fotografías 360º en un mapa y Photo Sphere Viewer para mostrar las panorámicas interactivamente. Permite buscar, filtrar y explorar las fotos.",
+    "url": "https://pedralcg.github.io/visor-360/",
+    "thumbnail": "assets/img/projects/visor-360.png",
+    "status": "Activo",
+    "status_description": "El proyecto está completo y funcional. Posibles mejoras futuras en la usabilidad y diseño.",
+    "technologies": ["HTML", "CSS", "JavaScript", "Leaflet", "Photo Sphere Viewer", "GeoJSON"]
   },
   {
     "title": "MapViewer ArcGIS Online IDEN",
     "description": "Visor de datos SIG publicado en ArcGIS Online con capas dinámicas y simbología avanzada.",
     "url": "/projects/arcgis-online-iframe.html",
     "thumbnail": "assets/img/projects/project-in-process.jpg",
-    "status": "Proyecto publicado",
+    "status": "Planificado",
+    "status_description": "En fase de conceptualización, aún no iniciado",
     "technologies": ["ArcGIS Online", "WebMap", "Feature Layers"]
   }
 ]

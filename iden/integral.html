@@ -13,7 +13,7 @@
 <body>
   <div id="header"></div>
 
-  <main>
+<main>
     <section>
       <h1>Visor Integral · Pruebas y Borradores</h1>
       <p>
@@ -22,18 +22,18 @@
       </p>
     </section>
 
-    <section>
-      <h2>🗺️ Recursos disponibles</h2>
+    <section aria-labelledby="recursos-disponibles">
+      <h2 id="recursos-disponibles">🗺️ Recursos disponibles</h2>
       <ul>
         <li><a href="https://arcg.is/1rn9rP0" target="_blank" rel="noopener noreferrer">Visor MapViewer · Recursos forestales del territorio de Integral</a></li>
         <li><a href="https://iden.maps.arcgis.com/apps/dashboards/f59f7088bf53406f8928e37a36f45384" target="_blank" rel="noopener noreferrer">Dashboard · Recursos forestales del territorio de Integral</a></li>
         <li><a href="https://iden.maps.arcgis.com/apps/instant/atlas/index.html?appid=66c1a02800454e7b99fbfda3af3a3742" target="_blank" rel="noopener noreferrer">Atlas · Recursos forestales del territorio de Integral</a></li>
-        <!-- <li><a href="https://iden.maps.arcgis.com/apps/instant/sidebar/index.html?appid=a33fbde9a484407e8f0344eda2017ff7" target="_blank" rel="noopener noreferrer">APP Barra Lateral · Recursos forestales del territorio de Integral</a></li> -->
+        <li><a href="https://iden.maps.arcgis.com/apps/instant/sidebar/index.html?appid=a33fbde9a484407e8f0344eda2017ff7" target="_blank" rel="noopener noreferrer">APP Barra Lateral · Recursos forestales del territorio de Integral</a></li>
       </ul>
     </section>
 
-    <section>
-      <h2>🌍 Visor MapViewer (embebido)</h2>
+    <section aria-labelledby="visor-mapviewer">
+      <h2 id="visor-mapviewer">🌍 Visor MapViewer (embebido)</h2>
       <p>
         Ejemplo de visor integrado desde <strong>ArcGIS Online</strong>.
         Incluye leyenda y opciones básicas de navegación.
@@ -49,8 +49,8 @@
       </arcgis-embedded-map>
     </section>
 
-    <section>
-      <h2>📊 Dashboard (embebido)</h2>
+    <section aria-labelledby="dashboard-embebido">
+      <h2 id="dashboard-embebido">📊 Dashboard (embebido)</h2>
       <p>
         <strong>Dashboard embebido</strong> 
         para visualizar indicadores y métricas de los recursos forestales.
@@ -59,38 +59,41 @@
         src="https://iden.maps.arcgis.com/apps/dashboards/f59f7088bf53406f8928e37a36f45384"
         style="width:100%; height:800px; max-width:1000px; border:none;"
         title="Dashboard de recursos forestales en ArcGIS Online"
-        allowfullscreen>
+        allowfullscreen
+        loading="lazy">
       </iframe>
     </section>
 
-    <section>
-      <h2>📖 Atlas (embebido)</h2>
+    <section aria-labelledby="atlas-embebido">
+      <h2 id="atlas-embebido">📖 Atlas (embebido)</h2>
       <p>
         <strong>Atlas interactivo</strong>
         con mapas temáticos y colecciones cartográficas.
       </p>
       <iframe 
         src="https://iden.maps.arcgis.com/apps/instant/atlas/index.html?appid=66c1a02800454e7b99fbfda3af3a3742" 
-        width="100%" height="800" frameborder="0" style="border:0" allowfullscreen
-        >No se admiten iFrames en esta página.
+        width="100%" height="800" frameborder="0" style="border:0; max-width:1000px;" allowfullscreen
+        title="Atlas de recursos forestales en ArcGIS Online"
+        loading="lazy">
       </iframe>
     </section>
 
-    <!-- <section>
-      <h2>💻 App de barra lateral (embebido)</h2>
+    <section aria-labelledby="app-lateral-embebida">
+      <h2 id="app-lateral-embebida">💻 App de barra lateral (embebido)</h2>
       <p>
         <strong>App de barra lateral interactiva</strong>
         con mapas temáticos y colecciones cartográficas.
       </p>
       <iframe 
         src="https://iden.maps.arcgis.com/apps/instant/sidebar/index.html?appid=a33fbde9a484407e8f0344eda2017ff7" 
-        width="100%" height="800" frameborder="0" style="border:0" allowfullscreen
-        >No se admiten iFrames en esta página.
+        width="100%" height="800" frameborder="0" style="border:0; max-width:1000px;" allowfullscreen
+        title="Aplicación de barra lateral de recursos forestales en ArcGIS Online"
+        loading="lazy">
       </iframe>
-    </section> -->
+    </section>
 
-    <section>
-      <h2>📌 Nota</h2>
+    <section aria-labelledby="nota-seccion">
+      <h2 id="nota-seccion">📌 Nota</h2>
       <p>
         Estos recursos están en <em>fase de desarrollo</em>. 
         Algunos visores pueden no estar disponibles, sufrir cambios 
@@ -98,6 +101,7 @@
       </p>
     </section>
   </main>
+
 
   <div id="footer"></div>
   <script src="/assets/js/include.js"></script>

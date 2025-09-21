@@ -411,6 +411,34 @@ main section:last-child { border-bottom: none; }
   color: white;
 }
 
+/* === ESTILOS PARA ESTADOS DE PROYECTO === */
+.project-card .project-status {
+  font-weight: bold;
+}
+
+.project-status.status-activo {
+  color: #28a745; /* Verde */
+}
+
+.project-status.status-en-desarrollo {
+  color: #ffc107; /* Naranja */
+}
+
+.project-status.status-archivado {
+  color: #dc3545; /* Rojo */
+}
+
+.project-status.status-planificado {
+  color: #6c757d; /* Gris */
+}
+
+.project-status .status-description {
+  font-weight: normal;
+  font-size: 0.9em;
+  color: #666; /* Un color más suave para la descripción */
+}
+
+
 /* ===============================
    CONTACT PAGE
 ================================= */
