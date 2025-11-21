@@ -15,6 +15,7 @@
     "status_description": "Puede tener cambios ligeros en las próximas semanas.",
     "technologies": ["HTML", "CSS", "JavaScript", "OpenLayers", "WMS/WMTS", "GeoJSON", "SupaBase"]
   },
+  {
     "title": "Mapa Etnoturístico: Ruta de las Fundiciones",
     "description": "Diseño de un mapa interactivo con Leaflet para la visualización de puntos de interés en una ruta cultural en La Unión (Murcia).",
     "url": "https://pedralcg.github.io/visor-ruta-etnografica-leaflet/",
