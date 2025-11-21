@@ -1,9 +1,11 @@
 [
-  // Las categorías de estado de los proyectos son:
-  // Proyecto Activo: Completo, funcional y con mantenimiento regular.
-  // En Desarrollo: En progreso, funcional pero con errores o incompletas.
-  // Archivado: Completo, pero sin mantenimiento ni actualizaciones activas.
-  // Planificado: En fase de conceptualización, aún no iniciado.
+  {
+    "_comment1": "Las categorías de estado de los proyectos son:",
+    "_comment2": "Proyecto Activo: Completo, funcional y con mantenimiento regular.",
+    "_comment3": "En Desarrollo: En progreso, funcional pero con errores o incompletas.",
+    "_comment4": "Archivado: Completo, pero sin mantenimiento ni actualizaciones activas.",
+    "_comment5": "Planificado: En fase de conceptualización, aún no iniciado."
+  },
   {
     "title": "Geoportal Ambiental - Región de Murcia",
     "description": "Aplicación web interactiva para visualizar y analizar datos ambientales de la Región de Murcia.",
