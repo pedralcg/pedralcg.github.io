@@ -4,7 +4,17 @@
     "_comment2": "Proyecto Activo: Completo, funcional y con mantenimiento regular.",
     "_comment3": "En Desarrollo: En progreso, funcional pero con errores o incompletas.",
     "_comment4": "Archivado: Completo, pero sin mantenimiento ni actualizaciones activas.",
-    "_comment5": "Planificado: En fase de conceptualización, aún no iniciado.",
+    "_comment5": "Planificado: En fase de conceptualización, aún no iniciado."
+    },
+    {
+    "title": "Geoportal Ambiental - Región de Murcia",
+    "description": "Aplicación web interactiva para visualizar y analizar datos ambientales de la Región de Murcia.",
+    "url": "https://pedralcg.github.io/geoportal-rm/",
+    "thumbnail": "assets/img/projects/visor-comparador-ol.png",
+    "status": "Activo",
+    "status_description": "Puede tener cambios ligeros en las próximas semanas.",
+    "technologies": ["HTML", "CSS", "JavaScript", "OpenLayers", "WMS/WMTS", "GeoJSON", "SupaBase"]
+  },
     "title": "Mapa Etnoturístico: Ruta de las Fundiciones",
     "description": "Diseño de un mapa interactivo con Leaflet para la visualización de puntos de interés en una ruta cultural en La Unión (Murcia).",
     "url": "https://pedralcg.github.io/visor-ruta-etnografica-leaflet/",
