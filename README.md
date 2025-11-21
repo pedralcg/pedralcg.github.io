@@ -52,8 +52,21 @@ También puedes encontrarme en:
 
 ## Licencia
 
-Este proyecto está disponible bajo la licencia **MIT**.  
-Puedes usar, modificar y distribuir el código libremente, manteniendo el aviso de copyright y la licencia original.
+Este proyecto está bajo la Licencia **Creative Commons Atribución-NoComercial 4.0 Internacional (CC BY-NC 4.0)**.
+
+Esto significa que puedes:
+
+- **Compartir**: Copiar y redistribuir el material en cualquier medio o formato.
+- **Adaptar**: Remezclar, transformar y construir a partir del material.
+
+Bajo las siguientes condiciones:
+
+- **Atribución**: Debes dar crédito de manera adecuada, brindar un enlace a la licencia, e indicar si se han realizado cambios.
+- **NoComercial**: No puedes hacer uso del material con propósitos comerciales.
+
+Para ver una copia de esta licencia, visita [http://creativecommons.org/licenses/by-nc/4.0/](http://creativecommons.org/licenses/by-nc/4.0/) o consulta el archivo `LICENSE`.
+
+Para uso comercial, por favor contactar con el autor.
 
 ---
 
