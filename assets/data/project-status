@@ -1,0 +1,6 @@
+# Categorías de estado de los proyectos
+
+- **Proyecto Activo**: Completo, funcional y con mantenimiento regular.
+- **En Desarrollo**: En progreso, funcional pero con errores o incompletas.
+- **Archivado**: Completo, pero sin mantenimiento ni actualizaciones activas.
+- **Planificado**: En fase de conceptualización, aún no iniciado.
